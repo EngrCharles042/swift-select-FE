@@ -1,7 +1,7 @@
 export const Section = () => {
     return (
         <div className="pb-[5rem] max-w-[1280px] mx-auto self-stretch border-b-[color:var(--blue-gray-200,#E2E8F0)] pl-20 pr-6 border-b border-solid max-md:px-5">
-            <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
+            <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0 justify-between">
                 <div className="flex flex-col items-stretch w-[48%] max-md:w-full max-md:ml-0">
                     <div className="items-stretch self-stretch flex flex-col my-auto max-md:max-w-full max-md:mt-10">
                         <div className="text-blue-500 text-6xl font-extrabold leading-[79px] max-md:max-w-full max-md:text-4xl max-md:leading-[49px]">
@@ -16,12 +16,16 @@ export const Section = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col items-stretch w-[52%] ml-5 max-md:w-full max-md:ml-0">
-                    <img
+                <div className="rounded-xl flex flex-col items-stretch w-[52%] ml-5 max-md:w-full max-md:ml-0">
+                    <video
+                        style={{borderRadius: "2rem"}}
                         loading="lazy"
-                        srcSet="https://res.cloudinary.com/dpfqbb9pl/image/upload/v1700749115/Desktop_e7e5kn.svg"
-                        className="aspect-[1.32] object-contain object-center w-full items-center self-stretch overflow-hidden mt-20 max-md:max-w-full max-md:mt-10"
+                        src="https://res.cloudinary.com/dpfqbb9pl/video/upload/v1701385990/frontpage_video_x264_001_f2hrud.mp4"
+                        className="h-fit bg-blue-500 w-fit aspect-[1.32] object-contain object-center items-center self-stretch overflow-hidden mt-20 max-md:max-w-full max-md:mt-10"
+                        autoPlay muted
+                        controls loop
                     />
+
                 </div>
             </div>
         </div>
