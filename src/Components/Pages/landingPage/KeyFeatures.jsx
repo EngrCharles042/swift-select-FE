@@ -1,6 +1,6 @@
 export const KeyFeatures = () => {
     return (
-        <div className="max-w-[1280px] mx-auto mt-[5rem] items-center flex flex-col max-w-[1280px]">
+        <div id={'key'} className="max-w-[1280px] mx-auto mt-[5rem] items-center flex flex-col max-w-[1280px]">
             <div className="text-blue-500 text-center text-6xl font-extrabold leading-[62px] whitespace-nowrap max-md:text-4xl max-md:leading-[50px]">
                 Key Features
             </div>
