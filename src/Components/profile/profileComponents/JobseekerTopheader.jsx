@@ -1,9 +1,12 @@
 import * as React from "react";
 import {useState} from "react";
 import {Link} from "react-router-dom";
+import {ProfilePopUp} from "../../utils/ProfilePopUp.jsx";
 
-export const JobSeekerTopHeader = ({handleFindJobPage, handleProfilePage}) => {
+export const JobSeekerTopHeader = ({handleFindJobPage, handleProfilePage, userData, handleChat}) => {
     const [active, setActive] = useState("findJobs");
+
+    const [profileClick, setProfileCLick] = useState(false);
 
     const activePageToFindJobs = () => {
         setActive("findJobs");
@@ -13,10 +16,14 @@ export const JobSeekerTopHeader = ({handleFindJobPage, handleProfilePage}) => {
         setActive("profile");
     }
 
+    const activePageToChat = () => {
+        setActive("chat");
+    }
+
     const swiftLogo = "src/assets/images/swift_logo.svg";
 
     return (
-        <div className="fixed justify-between items-stretch bg-white flex w-full gap-5 px-12 py-2 max-md:max-w-full max-md:flex-wrap max-md:px-5">
+        <div className="sticky top-[0] justify-between items-stretch bg-white flex w-full gap-5 px-12 pt-2 max-md:max-w-full max-md:flex-wrap max-md:px-5" style={{zIndex: 3}}>
             <div className="text-blue-500 text-xl leading-7 tracking-normal my-auto">
                 <img className="w-14/14 h-20 cursor-pointer" src={swiftLogo} alt="Company Logo" />
             </div>
@@ -38,14 +45,16 @@ export const JobSeekerTopHeader = ({handleFindJobPage, handleProfilePage}) => {
             </div>
 
             <div className="items-stretch flex justify-between gap-5 max-md:justify-center">
-                <Link to={"/chat"} className="aspect-square object-contain object-center w-8 overflow-hidden self-center shrink-0 max-w-full my-auto cursor-pointer" >
-                    <img
-                        loading="lazy"
-                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/4c7e0a42-5e50-438b-9071-3e586df5aa6b?apiKey=2a664b353843410292501e6f128833a4&"
-                        className="aspect-square object-contain object-center w-8 overflow-hidden self-center shrink-0 max-w-full my-auto cursor-pointer"
-                        alt="chat"
-                    />
-                </Link>
+                <div onClick={handleChat} className="aspect-square object-contain object-center w-8 overflow-hidden self-center shrink-0 max-w-full my-auto cursor-pointer" >
+                    <div onClick={activePageToChat} className={`${ active === "chat" ? "active-nav" : "" } text-black-200 text-base font-bold leading-6 tracking-normal transition-colors duration-300 group-hover:text-blue-500 whitespace-nowrap`}>
+                        <img
+                            loading="lazy"
+                            src="https://cdn.builder.io/api/v1/image/assets/TEMP/4c7e0a42-5e50-438b-9071-3e586df5aa6b?apiKey=2a664b353843410292501e6f128833a4&"
+                            className="aspect-square object-contain object-center w-8 overflow-hidden self-center shrink-0 max-w-full my-auto cursor-pointer"
+                            alt="chat"
+                        />
+                    </div>
+                </div>
 
                 <img
                     loading="lazy"
@@ -54,16 +63,22 @@ export const JobSeekerTopHeader = ({handleFindJobPage, handleProfilePage}) => {
                     alt="notification"
                 />
 
-                <div className="relative cursor-pointer">
+                <div onClick={() => (setProfileCLick(!profileClick))} className="relative cursor-pointer">
                     <img
                         loading="lazy"
-                        src="src/assets/images/sundaysvg.svg"
+                        src={`${localStorage.getItem("profilePicture")}`}
                         className="aspect-square object-cover object-center w-[60px] h-[60px] rounded-full"
                         alt="Your alt text"
                     />
                     <div className="absolute bottom-5 right-2 w-2.5 h-2.5 bg-green-500 rounded-full"></div>
                 </div>
             </div>
+
+            { profileClick &&
+                <div className="absolute right-[2rem] top-[5.4rem] shadow-2xl">
+                    <ProfilePopUp/>
+                </div>
+            }
         </div>
     )
 };
