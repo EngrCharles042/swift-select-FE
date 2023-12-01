@@ -16,12 +16,17 @@ export const Section = ()=> {
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col items-stretch w-[52%] ml-5 max-md:w-full max-md:ml-0">
-                    <img
+                <div className="rounded-xl flex flex-col items-stretch w-[52%] ml-5 max-md:w-full max-md:ml-0">
+                    <video
+                        style={{borderRadius: "2rem"}}
                         loading="lazy"
-                        srcSet="https://res.cloudinary.com/dpfqbb9pl/image/upload/v1700749115/Desktop_e7e5kn.svg"
-                        className="aspect-[1.32] object-contain object-center w-full items-center self-stretch overflow-hidden mt-20 max-md:max-w-full max-md:mt-10"
+                        src="https://res.cloudinary.com/dpfqbb9pl/video/upload/v1701385990/frontpage_video_x264_001_f2hrud.mp4"
+                        className="h-fit bg-blue-500 w-fit aspect-[1.32] object-contain object-center items-center self-stretch overflow-hidden mt-20 max-md:max-w-full max-md:mt-10"
+                        // className="flex justify-center items-center h-screen w-full max-w-mdpath/to/poster-image.jpg mt-20"
+                        autoPlay muted
+                        controls loop
                     />
+
                 </div>
             </div>
         </div>
