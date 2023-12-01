@@ -1,12 +1,18 @@
 import * as React from "react";
 
-export const ProfilePopUp = () => {
+export const ProfilePopUp = ({handleProfile, handleProfilePop}) => {
+
+    const handleClickProfile = () => {
+        handleProfile();
+        handleProfilePop();
+    }
+
   return (
-    <div className="items-stretch bg-white flex flex-col py-2 max-w-[21rem] max-h-[12rem] px-6">
-      <header className="text-sky-500 text-xl leading-7 tracking-normal max-w-[272px] justify-center items-stretch bg-white w-full py-2 max-md:px-1">
-        ayomidefatogun@gmail.com
+    <div className="items-stretch bg-white flex flex-col py-2 w-fit max-h-[12rem] px-6">
+      <header className="text-sky-500 text-xl leading-7 tracking-normal justify-center items-stretch bg-white w-full py-2 max-md:px-1">
+          {localStorage.getItem("email")}
       </header>
-      <div className="cursor-pointer hover:bg-blue-300 items-center bg-white flex w-full gap-2.5 pl-8 pr-16 p-2 max-md:px-5">
+      <div onClick={handleClickProfile} className="cursor-pointer hover:bg-blue-300 items-center bg-white flex w-full gap-2.5 pl-8 pr-16 p-2 max-md:px-5">
         <img
           loading="lazy"
           src="https://cdn.builder.io/api/v1/image/assets/TEMP/25326447-9b80-4304-aa76-fe139ec3e020?apiKey=ecb6ce71cdf4467d9335c2f7dc302a16&"

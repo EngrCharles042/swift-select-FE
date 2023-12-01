@@ -3,7 +3,7 @@ import {useState} from "react";
 import {Link} from "react-router-dom";
 import {ProfilePopUp} from "../../utils/ProfilePopUp.jsx";
 
-export const JobSeekerTopHeader = ({handleFindJobPage, handleProfilePage, userData, handleChat}) => {
+export const JobSeekerTopHeader = ({handleFindJobPage, handleProfilePage, handleChat}) => {
     const [active, setActive] = useState("findJobs");
 
     const [profileClick, setProfileCLick] = useState(false);
@@ -14,6 +14,7 @@ export const JobSeekerTopHeader = ({handleFindJobPage, handleProfilePage, userDa
 
     const activePageToProfile = () => {
         setActive("profile");
+        handleProfilePage();
     }
 
     const activePageToChat = () => {
@@ -76,7 +77,7 @@ export const JobSeekerTopHeader = ({handleFindJobPage, handleProfilePage, userDa
 
             { profileClick &&
                 <div className="absolute right-[2rem] top-[5.4rem] shadow-2xl">
-                    <ProfilePopUp/>
+                    <ProfilePopUp handleProfilePop={() => (setProfileCLick(!profileClick))} handleProfile={activePageToProfile} />
                 </div>
             }
         </div>
