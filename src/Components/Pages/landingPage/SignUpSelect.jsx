@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const SignUpSelect = () => {
     return (
-        <div className="fixed w-[100vw] h-[100vh] flex items-center justify-center">
+        <div className="fixed w-[100vw] h-[100vh] flex items-center justify-center z-10">
             <div className={`absolute w-[100vw] h-[102vh] justify-center align-center bg-black opacity-[0.9]`} style={{zIndex: 2}}>
             </div>
             <div className="absolute justify-center items-center bg-gray-100 flex flex-col px-8 rounded-2xl max-md:px-5 w-[35vw] h-[50vh]" style={{zIndex: 5}}>
