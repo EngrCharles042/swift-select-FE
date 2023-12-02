@@ -48,8 +48,8 @@ export const EmployerProfile = ({setDep, userData}) => {
                         </div>
                     </div>
 
-                    { page === "companyInfo" && <EmployerCompanyInfo/> }
-                    { page === "contactInfo" && <EmployerContactInfo/> }
+                    { page === "companyInfo" && <EmployerCompanyInfo userData={userData}/> }
+                    { page === "contactInfo" && <EmployerContactInfo userData={userData}/> }
 
                 </div>
             </div>

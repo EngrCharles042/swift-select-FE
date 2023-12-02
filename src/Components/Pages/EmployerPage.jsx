@@ -2,10 +2,13 @@ import {useEffect, useState} from "react";
 import axios from "../../api/axios.jsx";
 import {EmployerTopHeader} from "../profile/profileComponents/EmployerTopHeader.jsx";
 import {EmployerProfile} from "../profile/employerProfile/EmployerProfile.jsx";
+import {JobPostsFullPage} from "../findJobPosts/JobPostsFullPage.jsx";
+import {FindCandidatesFullPage} from "../findCandidates/FindCandidatesFullPage.jsx";
 
 export const EmployerPage = () => {
     const [userData, setUserData] = useState()
     const [dep, setDep] = useState(false)
+    const [jobPosts, setJobPosts] = useState([])
 
     useEffect(() => {
         const fetchData = async () => {
@@ -24,7 +27,24 @@ export const EmployerPage = () => {
         fetchData();
     }, [dep]);
 
-    const [page, setPage] = useState("employer-profile")
+    useEffect(() => {
+        const fetchEmployerJobPosts = async () => {
+            await axios.get("/employer/job-posts", {
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem("token")}`
+                }
+            }).then(
+                response => {
+                    setJobPosts(response.data.data);
+                    console.log(response.data.data)
+                }
+            )
+        }
+
+        fetchEmployerJobPosts();
+    }, []);
+
+    const [page, setPage] = useState("find-candidates")
 
     const handleFindCandidatePage = () => {
         setPage("find-candidates")
@@ -41,7 +61,8 @@ export const EmployerPage = () => {
                 handleProfilePage={handleProfilePage}
             />
 
-            {/*{ page === "find-candidates" && <JobPostsFullPage handleSeeMore={handleSeeMore} handleFindJobsOneCompany={handleFindJobsOneCompany} /> }*/}
+
+            { page === "find-candidates" && <FindCandidatesFullPage /> }
             { page === "employer-profile" && <EmployerProfile setDep={() => {setDep(!dep)}} userData={userData} /> }
         </div>
     )

@@ -1,6 +1,17 @@
 import * as React from "react";
+import {useState} from "react";
 
-export const EmployerContactInfo = () => {
+export const EmployerContactInfo = ({userData}) => {
+    const [contactInfo, setContactInfo] = useState({
+        firstName: "",
+        lastName: "",
+        phoneNumber: ""
+    })
+
+    const handleChange = (e) => {
+        setContactInfo({ ...contactInfo, [e.target.name]: e.target.value })
+    }
+
     return(
         <form className="flex flex-col items-stretch w-[61%] ml-5 max-md:w-full max-md:ml-0">
             <div className="items-end flex grow flex-col max-md:max-w-full max-md:mt-10">
@@ -11,6 +22,8 @@ export const EmployerContactInfo = () => {
                     type="text"
                     name="firstName"
                     placeholder=""
+                    value={userData.firstName}
+                    onChange={handleChange}
                     className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch px-4 py-2.5 border-solid max-md:max-w-full"
                 />
 
@@ -21,6 +34,8 @@ export const EmployerContactInfo = () => {
                     type="text"
                     name="lastName"
                     placeholder=""
+                    value={userData.lastName}
+                    onChange={handleChange}
                     className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch px-4 py-2.5 border-solid max-md:max-w-full"
                 />
 
@@ -31,6 +46,8 @@ export const EmployerContactInfo = () => {
                     type="tel"
                     name="phoneNumber"
                     placeholder=""
+                    value={userData.phoneNumber}
+                    onChange={handleChange}
                     className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch px-4 py-2.5 border-solid max-md:max-w-full"
                 />
 
