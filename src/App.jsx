@@ -7,14 +7,13 @@ import {JobSeekerPage} from "./Components/Pages/JobSeekerPage.jsx";
 import {EmployerSignUpForm} from "./Components/Authentication/EmployerSignupForm.jsx";
 import {LandingPage} from "./Components/Pages/landingPage/LandingPage.jsx";
 import {EmployerPage} from "./Components/Pages/EmployerPage.jsx";
-import {ChatPage} from "./Components/Pages/ChatPage.jsx";
 import {useState} from "react";
 
 
 function App() {
     const [user, setUser] = useState();
 
-  return (
+    return (
     <>
         <Routes>
             <Route path="/" element={<LandingPage/>}/>

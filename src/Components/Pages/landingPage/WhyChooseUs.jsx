@@ -1,6 +1,6 @@
 export const WhyChooseUs = () => {
     return (
-        <div className="max-w-[1280px] mx-auto mt-[5rem] justify-end items-center flex flex-col">
+        <div id={'why'} className="max-w-[1280px] mx-auto mt-[5rem] justify-end items-center flex flex-col">
             <div className="flex w-20 shrink-0 h-20 flex-col ml-16 rounded-[50%] self-start max-md:ml-2.5" />
             <div className="text-blue-500 text-center text-6xl font-extrabold leading-[62px] self-center whitespace-nowrap max-md:max-w-full max-md:text-4xl max-md:leading-[50px]">
                 Why Choose Us?

@@ -1,6 +1,7 @@
 export const Possibilities = () => {
+
     return (
-        <div className="self-stretch max-w-[1280px] mx-auto mt-[5rem]">
+        <div id={'discover'} className="self-stretch max-w-[1280px] mx-auto mt-[5rem]">
             <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
                 <div className="flex flex-col items-stretch w-6/12 max-md:w-full max-md:ml-0">
                     <div className="grow pt-8 px-5 max-md:max-w-full max-md:mt-10">
@@ -86,9 +87,19 @@ export const Possibilities = () => {
                             your career advancement.
                         </div>
                         <div className="justify-center items-stretch flex w-[276px] max-w-full gap-4 mt-12 rounded-lg max-md:mt-10">
-                            <div className="text-blue-600 text-xl font-medium leading-6 tracking-wide w-[254px]">
+                            <div className="text-blue-500 text-xl font-medium leading-6 tracking-wide w-[254px] hover:bg-blue-100 cursor-pointer">
                                 Explore job opportunities
                             </div>
+
+                            {/*<div className="justify-center items-stretch flex w-[276px] max-w-full gap-4 mt-12 rounded-lg max-md:mt-10">*/}
+                            {/*    <div*/}
+                            {/*        className={`text-blue-500 text-xl font-medium leading-6 tracking-wide w-[254px] hover:bg-blue-100 cursor-pointer"*/}
+                            {/*       */}
+                            {/*    >*/}
+                            {/*        Explore job opportunities*/}
+                            {/*    </div>*/}
+                            {/*</div>*/}
+
                             <img
                                 loading="lazy"
                                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/a575f57d-3a4b-4d37-97c3-b06bf8efc3fc?apiKey=ecb6ce71cdf4467d9335c2f7dc302a16&"

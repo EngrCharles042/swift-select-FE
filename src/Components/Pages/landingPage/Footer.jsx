@@ -10,16 +10,16 @@ export const Footer = ()=> {
                 @ 2023. All rights reserved.
             </div>
             <div className="justify-between items-stretch flex gap-5 mt-3 px-5 max-md:max-w-full max-md:flex-wrap max-md:justify-center">
-                <div className="text-slate-600 text-base leading-6">Terms</div>
-                <div className="text-slate-600 text-base leading-6">Privacy</div>
-                <div className="text-slate-600 text-base leading-6">Support</div>
-                <div className="text-slate-600 text-base leading-6">
+                <div className="text-slate-600 text-base leading-6 cursor-pointer hover:text-blue-500">Terms</div>
+                <div className="text-slate-600 text-base leading-6 cursor-pointer hover:text-blue-500">Privacy</div>
+                <div className="text-slate-600 text-base leading-6 cursor-pointer hover:text-blue-500">Support</div>
+                <div className="text-slate-600 text-base leading-6 cursor-pointer hover:text-blue-500">
                     <ul>
                         <li>About</li>
                     </ul>
                 </div>
-                <div className="text-slate-600 text-base leading-6">Resources</div>
-                <div className="text-slate-600 text-base leading-6 whitespace-nowrap">
+                <div className="text-slate-600 text-base leading-6 cursor-pointer hover:text-blue-500">Resources</div>
+                <div className="text-slate-600 text-base leading-6 whitespace-nowrap cursor-pointer hover:text-blue-500">
                     Contact
                 </div>
             </div>
