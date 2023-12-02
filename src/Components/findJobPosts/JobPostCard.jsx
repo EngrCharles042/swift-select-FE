@@ -6,7 +6,7 @@ export const JobPostCard = ({companyName, jobTitle, logo, priceRange, jobDescrip
         <div className="items-stretch border shadow-lg bg-white flex w-full flex-col p-6 rounded-xl border-solid max-md:px-5 mb-5" style={customStyle} >
             <div className="justify-between items-stretch flex gap-5">
                 <div className="items-stretch flex grow basis-[0%] flex-col">
-                    <div onClick={handleFindJobsOneCompany} className="hover:text-blue-500 cursor-pointer text-black text-base leading-6 tracking-normal whitespace-nowrap">
+                    <div onClick={handleFindJobsOneCompany} className="hover:text-blue-500 max-w-fit cursor-pointer text-black text-base leading-6 tracking-normal whitespace-nowrap">
                         {companyName}
                     </div>
                     <div className="text-black text-xl font-semibold leading-7 tracking-normal whitespace-nowrap mt-2">
