@@ -8,6 +8,9 @@ import {ClipLoader} from "react-spinners";
 import {SweetAlert} from "../utils/SweetAlert.jsx";
 
 export const LoginForm = ({onAuth}) => {
+    const [verified, setVerified] = useState(true)
+
+    const [resendSuccess, setResendSuccess] = useState(false); // New state to track resend success
 
     const [clip, setClip] = useState(false);
 
@@ -30,9 +33,12 @@ export const LoginForm = ({onAuth}) => {
         setShowPassword(!showPassword);
     };
 
-
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (!verified && !resendSuccess) {
+            return;
+        }
 
         try {
             setClip(true);
@@ -42,13 +48,25 @@ export const LoginForm = ({onAuth}) => {
             await axios.post('/auth/login', formData)
                 .then(result => {
 
+
+                    if (result.data.message === "notVerified") {
+                        setTimeout(() => {
+                            setClip(false)
+                            setBlur("");
+                            setVerified(false);
+                        }, 500)
+
+                        return
+                    }
+
+
+                    console.log('User login successful!');
+
                     localStorage.setItem("token", result.data.data.accessToken);
                     localStorage.setItem("firstname", result.data.data.firstName);
                     localStorage.setItem("lastname", result.data.data.lastName);
                     localStorage.setItem("email", result.data.data.email);
                     localStorage.setItem("profilePicture", result.data.data.profilePicture);
-
-                    console.log("email", result.data.data);
 
                     setClip(false);
 
@@ -63,8 +81,6 @@ export const LoginForm = ({onAuth}) => {
 
                     }, 1000)
                 });
-
-            console.log('User login successful!');
         } catch (error) {
             setClip(false);
 
@@ -76,6 +92,20 @@ export const LoginForm = ({onAuth}) => {
 
             // Handle error (display error message, log, etc.)
             console.error('login failed:', error.message);
+        }
+    };
+
+    const handleResendVerification = async () => {
+        try {
+            await axios.post('/auth/resend-verification-email', { email: formData.email });
+            setResendSuccess(true);
+            setVerified(true); // Assuming verification is successful after resend
+
+            setTimeout(() => {
+                setResendSuccess(false);
+            }, 3000);
+        } catch (error) {
+            console.error('Error resending verification email:', error.message);
         }
     };
 
@@ -132,6 +162,28 @@ export const LoginForm = ({onAuth}) => {
                         </div>
                         <h2 className="text-center font-semibold text-2xl">Welcome back to SwiftSelect</h2>
                     </div>
+
+                    { !verified && !resendSuccess && (
+                        <div className="w-full bg-red-500 p-4 rounded text-white mt-2">
+                            <p className="text-center">
+                                Your Account has not been verified, please visit your email to proceed.
+                            </p>
+                            <div className="flex justify-between items-center mt-2">
+                                <p>Didn't Get the Mail? </p>
+                                <button
+                                    onClick={handleResendVerification}
+                                    className="rounded p-2 bg-blue-800">
+                                    Resend Verification Mail
+                                </button>
+                            </div>
+                        </div>
+                    )}
+
+                    {resendSuccess && (
+                        <div className="w-full bg-green-500 p-4 rounded text-white mt-2">
+                            <p className="text-center">Verification mail successfully resent</p>
+                        </div>
+                    )}
 
                     <div className="gateway sm:col-span-full">
                         <img src={googleImg} alt="" />
