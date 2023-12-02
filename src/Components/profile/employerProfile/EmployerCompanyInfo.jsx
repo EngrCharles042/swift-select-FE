@@ -1,6 +1,29 @@
 import * as React from "react";
+import {useState} from "react";
 
-export const EmployerCompanyInfo = () => {
+
+export const EmployerCompanyInfo = ({userData}) => {
+    const [companyInfo, setCompanyInfo] = useState({
+        companyName: "",
+        companyDescription: "",
+        address: "",
+        country: "",
+        state: "",
+        industry: "",
+        companyType: "",
+        numberOfEmployees: "",
+        website: "",
+        facebook: "",
+        instagram: "",
+        twitter:  ""
+    })
+
+
+
+    const handleChange = (e) => {
+        setCompanyInfo({ ...companyInfo, [e.target.name]: e.target.value })
+    }
+
     return(
         <form className="flex flex-col items-stretch w-[61%] ml-5 max-md:w-full max-md:ml-0">
             <div className="items-end flex grow flex-col max-md:max-w-full max-md:mt-10">
@@ -10,7 +33,8 @@ export const EmployerCompanyInfo = () => {
                 <input
                     type="text"
                     name="companyName"
-                    placeholder="Decagon Institute"
+                    value={userData.companyName}
+                    onChange={handleChange}
                     className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch px-4 py-2.5 border-solid max-md:max-w-full"
                 />
 
@@ -20,7 +44,8 @@ export const EmployerCompanyInfo = () => {
                 <input
                     type="text"
                     name="companyDescription"
-                    placeholder="Elite Software Engineering Institute"
+                    value={userData.companyDescription}
+                    onChange={handleChange}
                     className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch px-4 py-2.5 border-solid max-md:max-w-full"
                 />
 
@@ -29,28 +54,31 @@ export const EmployerCompanyInfo = () => {
                 </div>
                 <input
                     type="text"
-                    name="companyAddress"
-                    placeholder="Edo Tech Park, Okhuromi"
+                    name="address"
+                    value={userData.address}
+                    onChange={handleChange}
                     className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch px-4 py-2.5 border-solid max-md:max-w-full"
                 />
 
                 <div className="relative top-2 text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap flex justify-start items-stretch bg-white self-start w-fit px-1 mx-4 mt-5">
-                    City/State
+                    Country
                 </div>
                 <input
                     type="text"
-                    name="city"
-                    placeholder="Benin/Edo"
+                    name="country"
+                    value={userData.country}
+                    onChange={handleChange}
                     className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch px-4 py-2.5 border-solid max-md:max-w-full"
                 />
 
                 <div className="relative top-2 text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap flex justify-start items-stretch bg-white self-start w-fit px-1 mx-4 mt-5">
-                    Email Address
+                    State
                 </div>
                 <input
-                    type="email"
-                    name="email"
-                    placeholder="decagon@decagonhq.com"
+                    type="text"
+                    name="state"
+                    value={userData.state}
+                    onChange={handleChange}
                     className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch px-4 py-2.5 border-solid max-md:max-w-full"
                 />
 
@@ -60,7 +88,8 @@ export const EmployerCompanyInfo = () => {
                 <input
                     type="text"
                     name="industry"
-                    placeholder="Technolgy"
+                    value={userData.industry}
+                    onChange={handleChange}
                     className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch px-4 py-2.5 border-solid max-md:max-w-full"
                 />
 
@@ -70,7 +99,8 @@ export const EmployerCompanyInfo = () => {
                 <input
                     type="text"
                     name="companyType"
-                    placeholder="Private"
+                    value={userData.companyType}
+                    onChange={handleChange}
                     className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch px-4 py-2.5 border-solid max-md:max-w-full"
                 />
 
@@ -79,8 +109,9 @@ export const EmployerCompanyInfo = () => {
                 </div>
                 <input
                     type="number"
-                    name="numOfEmployees"
-                    placeholder="1000"
+                    name="numberOfEmployees"
+                    value={userData.numberOfEmployees}
+                    onChange={handleChange}
                     className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch px-4 py-2.5 border-solid max-md:max-w-full"
                 />
 
@@ -90,27 +121,41 @@ export const EmployerCompanyInfo = () => {
                 <input
                     type="text"
                     name="website"
-                    placeholder="https://www.decagon.com"
+                    value={userData.website}
+                    onChange={handleChange}
                     className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch px-4 py-2.5 border-solid max-md:max-w-full"
                 />
 
                 <div className="relative top-2 text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap flex justify-start items-stretch bg-white self-start w-fit px-1 mx-4 mt-5">
-                    Company's Linkdin Profile
+                    Company's Facebook Profile
                 </div>
                 <input
                     type="text"
-                    name="linkedin"
-                    placeholder="https://www.linkedin.com/decagoninsitute"
+                    name="facebook"
+                    value={userData.facebook}
+                    onChange={handleChange}
                     className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch px-4 py-2.5 border-solid max-md:max-w-full"
                 />
 
                 <div className="relative top-2 text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap flex justify-start items-stretch bg-white self-start w-fit px-1 mx-4 mt-5">
-                    Other Social Media Profiles
+                    Instagram
                 </div>
                 <input
-                    type="email"
-                    name="email"
-                    placeholder="http://"
+                    type="text"
+                    name="instagram"
+                    value={userData.instagram}
+                    onChange={handleChange}
+                    className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch px-4 py-2.5 border-solid max-md:max-w-full"
+                />
+
+                <div className="relative top-2 text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap flex justify-start items-stretch bg-white self-start w-fit px-1 mx-4 mt-5">
+                    Twitter
+                </div>
+                <input
+                    type="text"
+                    name="twitter"
+                    value={userData.twitter}
+                    onChange={handleChange}
                     className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch px-4 py-2.5 border-solid max-md:max-w-full"
                 />
 
