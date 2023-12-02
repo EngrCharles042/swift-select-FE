@@ -62,6 +62,7 @@ export const EmployerTopHeader = ({handleFindCandidatePage, handleProfilePage}) 
                     />
                     <div className="absolute bottom-5 right-2 w-2.5 h-2.5 bg-green-500 rounded-full"></div>
                 </div>
+
             </div>
         </div>
     )

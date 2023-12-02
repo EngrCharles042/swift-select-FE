@@ -1,6 +1,6 @@
 export const SortJobPosts = () => {
     return (
-        <div className="items-stretch h-fit flex flex-col sticky top-[6rem]">
+        <div className="items-stretch h-fit flex flex-col sticky top-[6rem] pb-5">
             <div className="text-zinc-500 text-base ml-5 leading-6 tracking-normal w-full">
                 Job Type
             </div>
