@@ -313,9 +313,32 @@ export const EmployerSignUpForm = () => {
                                     className="select-tab block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                                 >
                                     <option value="" selected disabled></option>
-                                    <option value="ACCOUNTING">ACCOUNTING</option>
-                                    <option value="ADMIN">ADMIN</option>
-                                    <option value="BUILDING_AND_ARCHITECTURE">BUILDING & ARCHITECTURE</option>
+                                    <option value="ACCOUNTING">Accounting</option>
+                                    <option value="ADMIN">Admin</option>
+                                    <option value="BUILDING_AND_ARCHITECTURE">Building and Architecture</option>
+                                    <option value="CONSULTING_AND_STRATEGY">Consulting and Strategy</option>
+                                    <option value="CREATIVE_DESIGN">Creative Design</option>
+                                    <option value="CUSTOMER_SERVICE_SUPPORT">Customer Service Support</option>
+                                    <option value="DRIVER_TRANSPORT_SERVICE">Driver Transport Service</option>
+                                    <option value="ENGINEERING_AND_TECHNOLOGY">Engineering and Technology</option>
+                                    <option value="ESTATE_AGENT">Estate Agent</option>
+                                    <option value="FARMING_AND_AGRICULTURE">Farming and Agriculture</option>
+                                    <option value="FOOD_SERVICE_AND_CATERING">Food Service and Catering</option>
+                                    <option value="HEALTH_AND_SERVICE">Health and Service</option>
+                                    <option value="HOSPITALITY_AND_LEISURE">Hospitality and Leisure</option>
+                                    <option value="HUMAN_RESOURCE">Human Resource</option>
+                                    <option value="LEGAL_SERVICE">Legal Service</option>
+                                    <option value="MANAGEMENT_AND_BUSINESS_DEVELOPMENT">Management and Business Development</option>
+                                    <option value="MARKETING_AND_COMMUNICATIONS">Marketing and Communication</option>
+                                    <option value="MEDICAL_AND_PHARMACEUTICALS">Medical and Pharmaceuticals</option>
+                                    <option value="PRODUCT_AND_PRODUCT_MANAGEMENT">Product and Product Management</option>
+                                    <option value="QUALITY_CONTROL_AND_ASSURANCE">Quality Control and Assurance</option>
+                                    <option value="RESEARCH_TEACHING_AND_TRAINING">Research, Teaching and Training</option>
+                                    <option value="SALES">Sales</option>
+                                    <option value="SOFTWARE_ENGINEERING">Software Engineering</option>
+                                    <option value="DATA_SCIENCE">Data Science</option>
+                                    <option value="SUPPLY_CHAIN_AND_PROCUREMENT">Supply Chain and Procurement</option>
+                                    <option value="TRADES_AND_SERVICES">Trade and Services</option>
                                 </select>
                             </div>
 
@@ -431,7 +454,7 @@ export const EmployerSignUpForm = () => {
                         </div>
 
                         <div className="col-span-full text-center mt-2" style={{color: "#98A2B3"}}>
-                            <h3>Already have an account? <a href="#" style={{color: "#2F80ED"}}> Log in here</a></h3>
+                            <h3>Already have an account? <Link to={"/login"}  style={{color: "#2F80ED"}}> Log in here</Link></h3>
                         </div>
                     </div>
                 </form>

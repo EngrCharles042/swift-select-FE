@@ -4,6 +4,7 @@ import {EmployerTopHeader} from "../profile/profileComponents/EmployerTopHeader.
 import {EmployerProfile} from "../profile/employerProfile/EmployerProfile.jsx";
 import {JobPostsFullPage} from "../findJobPosts/JobPostsFullPage.jsx";
 import {FindCandidatesFullPage} from "../findCandidates/FindCandidatesFullPage.jsx";
+import {ChatPage} from "./ChatPage.jsx";
 
 export const EmployerPage = () => {
     const [userData, setUserData] = useState()
@@ -54,16 +55,22 @@ export const EmployerPage = () => {
         setPage("employer-profile")
     }
 
+    const handleChatPage = () => {
+        setPage("chat")
+    }
+
     return(
         <div className="mb-15">
             <EmployerTopHeader
                 handleFindCandidatePage={handleFindCandidatePage}
                 handleProfilePage={handleProfilePage}
+                userData={userData}
+                handleChat={handleChatPage}
             />
-
 
             { page === "find-candidates" && <FindCandidatesFullPage /> }
             { page === "employer-profile" && <EmployerProfile setDep={() => {setDep(!dep)}} userData={userData} /> }
+            { page === "chat" && <ChatPage/>}
         </div>
     )
 }

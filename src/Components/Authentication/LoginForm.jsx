@@ -10,7 +10,7 @@ import {SweetAlert} from "../utils/SweetAlert.jsx";
 export const LoginForm = ({onAuth}) => {
     const [verified, setVerified] = useState(true)
 
-    const [resendSuccess, setResendSuccess] = useState(false); // New state to track resend success
+    const [resendSuccess, setResendSuccess] = useState(false);
 
     const [clip, setClip] = useState(false);
 
@@ -67,6 +67,7 @@ export const LoginForm = ({onAuth}) => {
                     localStorage.setItem("lastname", result.data.data.lastName);
                     localStorage.setItem("email", result.data.data.email);
                     localStorage.setItem("profilePicture", result.data.data.profilePicture);
+                    localStorage.setItem("role", result.data.data.role);
 
                     setClip(false);
 
@@ -99,7 +100,7 @@ export const LoginForm = ({onAuth}) => {
         try {
             await axios.post('/auth/resend-verification-email', { email: formData.email });
             setResendSuccess(true);
-            setVerified(true); // Assuming verification is successful after resend
+            setVerified(true);
 
             setTimeout(() => {
                 setResendSuccess(false);

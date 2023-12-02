@@ -1,9 +1,12 @@
 import * as React from "react";
 import {useState} from "react";
 import {Link} from "react-router-dom";
+import {ProfilePopUp} from "../../utils/ProfilePopUp.jsx";
 
-export const EmployerTopHeader = ({handleFindCandidatePage, handleProfilePage}) => {
-    const [active, setActive] = useState("profile");
+export const EmployerTopHeader = ({handleFindCandidatePage, handleProfilePage, userData, handleChat}) => {
+    const [active, setActive] = useState("findCandidates");
+
+    const [profileClick, setProfileCLick] = useState(false);
 
     const activePageToFindJobs = () => {
         setActive("findCandidates");
@@ -16,7 +19,7 @@ export const EmployerTopHeader = ({handleFindCandidatePage, handleProfilePage}) 
     const swiftLogo = "src/assets/images/swift_logo.svg";
 
     return (
-        <div className="justify-between items-stretch bg-white flex w-full gap-5 px-12 py-4 max-md:max-w-full max-md:flex-wrap max-md:px-5">
+        <div className="sticky top-[0] justify-between items-stretch bg-white flex w-full gap-5 px-12 py-4 max-md:max-w-full max-md:flex-wrap max-md:px-5" style={{zIndex: 3}}>
             <div className="text-blue-500 text-xl leading-7 tracking-normal my-auto">
                 <img className="w-14/14 h-20 cursor-pointer" src={swiftLogo} alt="Company Logo" />
             </div>
@@ -37,15 +40,15 @@ export const EmployerTopHeader = ({handleFindCandidatePage, handleProfilePage}) 
                 </div>
             </div>
 
-            <div className="items-stretch flex justify-between gap-5 max-md:justify-center">
-                <Link to={"/chat"} className="aspect-square object-contain object-center w-8 overflow-hidden self-center shrink-0 max-w-full my-auto cursor-pointer" >
+            <div className="items-center flex justify-between gap-5 max-md:justify-center">
+                <div onClick={handleChat} className="aspect-square object-contain object-center w-8 overflow-hidden self-center shrink-0 max-w-full my-auto cursor-pointer" >
                     <img
                         loading="lazy"
                         src="https://cdn.builder.io/api/v1/image/assets/TEMP/4c7e0a42-5e50-438b-9071-3e586df5aa6b?apiKey=2a664b353843410292501e6f128833a4&"
                         className="aspect-square object-contain object-center w-8 overflow-hidden self-center shrink-0 max-w-full my-auto cursor-pointer"
                         alt="chat"
                     />
-                </Link>
+                </div>
 
                 <img
                     loading="lazy"
@@ -53,17 +56,27 @@ export const EmployerTopHeader = ({handleFindCandidatePage, handleProfilePage}) 
                     className="aspect-square object-contain object-center w-8 overflow-hidden self-center shrink-0 max-w-full my-auto cursor-pointer"
                     alt="notification"
                 />
-                <div className="relative cursor-pointer">
-                    <img
-                        loading="lazy"
-                        src="src/assets/images/sundaysvg.svg"
-                        className="aspect-square object-cover object-center w-[60px] h-[60px] rounded-full"
-                        alt="Your alt text"
-                    />
-                    <div className="absolute bottom-5 right-2 w-2.5 h-2.5 bg-green-500 rounded-full"></div>
+                <div onClick={() => (setProfileCLick(!profileClick))} className="relative cursor-pointer">
+                        <img
+                            loading="lazy"
+                            src={`${userData?.profilePicture}`}
+                            className="aspect-square object-cover object-center w-[60px] h-[60px] rounded-full"
+                            alt="Your alt text"
+                        />
+                        {/*<div className="absolute bottom-3 right-3 w-2.5 h-2.5 bg-green-500 rounded-full"></div>*/}
                 </div>
 
+                <button className="text-white text-base font-semibold leading-6 tracking-normal whitespace-nowrap justify-center items-stretch bg-blue-500 px-4 h-fit py-2 rounded-xl">
+                    Post New Job
+                </button>
             </div>
+
+            { profileClick &&
+                <div className="absolute right-[2rem] top-[5.4rem] shadow-2xl">
+                    <ProfilePopUp handleProfilePop={() => (setProfileCLick(!profileClick))} handleProfile={activePageToProfile} />
+                </div>
+            }
+
         </div>
     )
 };
