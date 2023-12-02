@@ -7,13 +7,29 @@ import {PersonalInfo} from "./personalInfo/PersonalInfo.jsx";
 import {CV} from "./resume/CV.jsx";
 import {useState} from "react";
 import "../../../App.css"
+import {ProfilePictureUpload} from "../profileComponents/ProfilePictureUpload.jsx";
 
 export const JobSeekerProfile = ({userData, setDep})=> {
     const [page, setPage] = useState("personalInfo");
+    const [changeAvatar, setChangeAvatar] = useState(false)
+
+    const handleChangeAvatar = () => {
+        setChangeAvatar(!changeAvatar);
+    }
 
     return (
-        <div className="bg-white flex flex-col items-stretch h-[50rem]">
-            <ProfileMidHeader userData={userData} />
+        <div className="bg-white relative flex flex-col items-stretch h-[50rem]">
+
+            { changeAvatar &&
+                <ProfilePictureUpload
+                    handleChangeAvatar={handleChangeAvatar}
+                />
+            }
+
+            <ProfileMidHeader
+                userData={userData}
+                handleChangeAvatar={handleChangeAvatar}
+            />
 
             <div className="justify-between self-center w-[872px] max-w-full mt-10 px-5">
                 <div className="flex max-md:flex-col max-md:items-stretch max-md:gap-0 gap-5">

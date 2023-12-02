@@ -9,9 +9,6 @@ export const CoverLetter = () => {
     const { getRootProps, getInputProps } = useDropzone({
         onDrop: (acceptedFiles) => {
             setUploadedFiles(acceptedFiles);
-
-            // Call your backend API endpoint to upload files
-
         },
     });
 
@@ -36,7 +33,6 @@ export const CoverLetter = () => {
             .catch((error) => {
                 SweetAlert('error', 'Oops!', 'Something went wrong please try again', 2000);
                 console.error('Error uploading coverletter :', error);
-                // Handle error appropriately (e.g., show an error message to the user)
             });
     }
 

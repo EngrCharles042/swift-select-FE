@@ -23,7 +23,10 @@ export const JobPostHalfDisplay = ({handleSeeMore, handleFindJobsOneCompany, see
                     {selectedJobPost.jobTitle}
                 </div>
                 <div className="text-blue-500 text-lg font-medium leading-6 tracking-normal whitespace-nowrap mt-3 max-md:max-w-full">
-                    {`₦${selectedJobPost.minimumPay} - ₦${selectedJobPost.maximumPay} / ${selectedJobPost.payRate}`}
+                    {`₦${selectedJobPost.minimumPay} - ₦${selectedJobPost.maximumPay} / ${selectedJobPost.payRate === "PER_HOUR" ? "Per Hour" :
+                        selectedJobPost.payRate === "PER_WEEK" ? "Per Week" :
+                            selectedJobPost.payRate === "PER_MONTH" ? "Per Month" :
+                                selectedJobPost.payRate === "PER_YEAR" ? "Per Year" : ""}`}
                 </div>
                 <div className="text-black text-base leading-6 tracking-normal whitespace-nowrap mt-3 max-md:max-w-full">
                     {selectedJobPost.location}

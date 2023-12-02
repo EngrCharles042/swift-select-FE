@@ -21,7 +21,7 @@ export const Section = () => {
                         style={{borderRadius: "2rem"}}
                         loading="lazy"
                         src="https://res.cloudinary.com/dpfqbb9pl/video/upload/v1701385990/frontpage_video_x264_001_f2hrud.mp4"
-                        className="h-fit bg-blue-500 w-fit aspect-[1.32] object-contain object-center items-center self-stretch overflow-hidden mt-20 max-md:max-w-full max-md:mt-10"
+                        className="h-fit bg-blue-500 w-[40vw] aspect-[1.32] object-contain object-center items-center self-stretch overflow-hidden mt-20 max-md:max-w-full max-md:mt-10"
                         autoPlay muted
                         controls loop
                     />

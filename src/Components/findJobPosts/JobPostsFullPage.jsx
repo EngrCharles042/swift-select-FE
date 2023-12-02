@@ -105,25 +105,6 @@ export const JobPostsFullPage = ({handleFindJobsOneCompany, userData}) => {
                         <SortJobPosts />
                     }
 
-
-                    {/*private Long id;*/}
-                    {/*private LocalDateTime updateDate;*/}
-                    {/*private String title;*/}
-                    {/*private Long numOfPeopleToHire;*/}
-                    {/*private String description;*/}
-                    {/*private String location;*/}
-                    {/*private EmploymentType employmentType;*/}
-                    {/*private JobType jobType;*/}
-                    {/*private String applicationDeadline;*/}
-                    {/*private Industry jobCategory;*/}
-                    {/*private Long maximumPay;*/}
-                    {/*private Long minimumPay;*/}
-                    {/*private PayRate payRate;*/}
-                    {/*private String language;*/}
-                    {/*private YearsOfExp yearsOfExp;*/}
-                    {/*private EducationLevel educationLevel;*/}
-                    {/*private String howToApply;*/}
-
                     <div className="self-stretch max-md:max-w-full mx-auto">
                         <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
 
@@ -132,7 +113,6 @@ export const JobPostsFullPage = ({handleFindJobsOneCompany, userData}) => {
                                     <div className="items-stretch flex grow flex-col max-md:mt-10">
                                         { jobPosts.map(
                                             jobPost => (
-
                                                 <div key={jobPost.id} id={jobPost.id} onClick={() => (setInitialPost(jobPost)) }>
                                                     <JobPostCard
                                                         customStyle={initialPost.id === jobPost.id ? activeStyle : {}}
@@ -140,7 +120,11 @@ export const JobPostsFullPage = ({handleFindJobsOneCompany, userData}) => {
                                                         companyName={jobPost.companyName}
                                                         jobTitle={jobPost.title}
                                                         logo={jobPost.logo}
-                                                        priceRange={`₦${jobPost.minimumPay} - ₦${jobPost.maximumPay} / ${jobPost.payRate} `}
+                                                        priceRange={`₦${jobPost.minimumPay} - ₦${jobPost.maximumPay} / 
+                                                                        ${jobPost.payRate === "PER_HOUR" ? "Per Hour" : 
+                                                                        jobPost.payRate === "PER_WEEK" ? "Per Week" : 
+                                                                            jobPost.payRate === "PER_MONTH" ? "Per Month" :
+                                                                                jobPost.payRate === "PER_YEAR" ? "Per Year" : "" } `}
                                                         jobDescription={jobPost.description}
                                                         jobType={jobPost.jobType}
                                                         state={jobPost.location}
