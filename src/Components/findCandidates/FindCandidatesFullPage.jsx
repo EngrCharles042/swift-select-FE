@@ -69,7 +69,6 @@ export const FindCandidatesFullPage = () => {
                                             <div key={uuid()} className="gap-5 flex flex-wrap max-md:flex-col max-md:items-stretch max-md:gap-0">
                                                 { applicants.map(
                                                     applicants => (
-
                                                         <AppliedCandidateCard
                                                             applicantName={applicants.applicantName}
                                                             applicantTitle={applicants.applicantTitle}
