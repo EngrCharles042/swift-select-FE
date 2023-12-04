@@ -79,6 +79,7 @@ export const JobInformation = ({handleChange, formData, countries, handleStep2})
                     required
                     className="flex justify-end items-stretch rounded self-center w-[500px] max-w-full px-4 py-2.5 max-md:flex-wrap pr-5"
                 >
+                    <option value="" selected disabled></option>
                     <option value="REMOTE">Remote</option>
                     <option value="HYBRID">Hybrid</option>
                     <option value="ON_SITE">On Site</option>
@@ -96,6 +97,7 @@ export const JobInformation = ({handleChange, formData, countries, handleStep2})
                     required
                     className="flex justify-end items-stretch rounded self-center w-[500px] max-w-full px-4 py-2.5 max-md:flex-wrap pr-5"
                 >
+                    <option value="" selected disabled></option>
                     <option value="FULL_TIME">Full Time</option>
                     <option value="PART_TIME">Part Time</option>
                     <option value="CONTRACT">Contract</option>
@@ -116,6 +118,7 @@ export const JobInformation = ({handleChange, formData, countries, handleStep2})
                     className="flex justify-end items-stretch rounded self-center w-[500px] max-w-full gap-5 px-4 py-2.5 max-md:flex-wrap"
                 >
 
+                    <option value="" selected disabled></option>
                     <option value="ACCOUNTING">Accounting</option>
                     <option value="ADMIN">Admin</option>
                     <option value="BUILDING_AND_ARCHITECTURE">Building and Architecture</option>
@@ -311,6 +314,7 @@ export const JobInformation = ({handleChange, formData, countries, handleStep2})
                         required
                         className="border border-[color:var(--Blue-1,#2F80ED)] flex justify-end rounded self-center w-[185px] max-w-full px-4 py-3 max-md:flex-wrap"
                     >
+                        <option value="" selected disabled></option>
                         <option value="PER_HOUR">Per Hour</option>
                         <option value="PER_WEEK">Per Week</option>
                         <option value="PER_MONTH">Per Month</option>

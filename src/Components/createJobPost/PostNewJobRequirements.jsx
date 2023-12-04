@@ -32,6 +32,7 @@ export const PostNewJobRequirements = ({isVisible, handleChange, formData, respo
                             required
                             className="flex justify-end items-stretch rounded self-center w-[500px] max-w-full px-4 py-2.5 max-md:flex-wrap pr-5"
                         >
+                            <option value="" selected disabled></option>
                             <option value="DEGREE">Degree</option>
                             <option value="DIPLOMA">Diploma</option>
                             <option value="HIGH_SCHOOL">High School</option>

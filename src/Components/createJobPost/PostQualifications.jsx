@@ -17,6 +17,7 @@ export const PostQualifications = ({formData, handleChange, handleStep3, handleQ
                             required
                             className="flex justify-end items-stretch rounded self-center w-[500px] max-w-full px-4 py-3 max-md: flex-wrap pr-5 text-black text-base leading-6 tracking-normal"
                         >
+                            <option value="" selected disabled></option>
                             <option value="ENTRY_LEVEL">Entry Level</option>
                             <option value="JUNIOR_LEVEL">Junior Level</option>
                             <option value="MID_LEVEL">Mid Level</option>
@@ -36,6 +37,7 @@ export const PostQualifications = ({formData, handleChange, handleStep3, handleQ
                             required
                             className="flex justify-end items-stretch rounded self-center w-[500px] max-w-full px-4 py-3 max-md: flex-wrap pr-5 text-black text-base leading-6 tracking-normal"
                         >
+                            <option value="" selected disabled></option>
                             <option value="NO_EXPERIENCE">No Experience</option>
                             <option value="LESS_THAN_ONE_YEAR">Less Than One Year</option>
                             <option value="ONE_TO_THREE_YEARS">One To Three Years</option>

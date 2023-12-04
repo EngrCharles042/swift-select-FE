@@ -28,29 +28,29 @@ export const CreateJobPostPage = ({handleFindCandidatesPage}) => {
 
 
     const [formData, setFormData] = useState({
-        title: "",
-        numOfPeopleToHire: "",
-        description: "",
-        country: "",
-        state: "",
-        employmentType: "",
-        jobType: "",
-        applicationDeadline: "",
-        jobCategory: "",
-        maximumPay: "",
-        minimumPay: "",
-        payRate: "",
-        language: "",
-        yearsOfExp: "",
-        experienceLevel: "",
-        educationLevel: "",
+        title: '',
+        numOfPeopleToHire: '',
+        description: '',
+        country: '',
+        state: '',
+        employmentType: '',
+        jobType: '',
+        applicationDeadline: '',
+        jobCategory: '',
+        maximumPay: '',
+        minimumPay: '',
+        payRate: '',
+        language: '',
+        yearsOfExp: '',
+        experienceLevel: '',
+        educationLevel: '',
         responsibilities: [],
         niceToHave: [],
         qualifications: []
     })
 
     const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value })
+        setFormData({ ...formData, [e.target.name]: e.target.value });
     }
 
     const addResponsibilitiesToList = () => {
