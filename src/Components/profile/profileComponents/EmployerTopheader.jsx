@@ -3,7 +3,7 @@ import {useState} from "react";
 import {Link} from "react-router-dom";
 import {ProfilePopUp} from "../../utils/ProfilePopUp.jsx";
 
-export const EmployerTopHeader = ({handleFindCandidatePage, handleProfilePage, userData, handleChat}) => {
+export const EmployerTopHeader = ({handleFindCandidatePage, handlePostJobPage, handleProfilePage, userData, handleChat}) => {
     const [active, setActive] = useState("findCandidates");
 
     const [profileClick, setProfileCLick] = useState(false);
@@ -19,7 +19,7 @@ export const EmployerTopHeader = ({handleFindCandidatePage, handleProfilePage, u
     const swiftLogo = "src/assets/images/swift_logo.svg";
 
     return (
-        <div className="sticky top-[0] justify-between items-stretch bg-white flex w-full gap-5 px-12 py-4 max-md:max-w-full max-md:flex-wrap max-md:px-5" style={{zIndex: 3}}>
+        <div className="sticky top-[0] justify-between items-stretch bg-white flex w-full gap-5 px-12 pt-4 max-md:max-w-full max-md:flex-wrap max-md:px-5" style={{zIndex: 3}}>
             <div className="text-blue-500 text-xl leading-7 tracking-normal my-auto">
                 <img className="w-14/14 h-20 cursor-pointer" src={swiftLogo} alt="Company Logo" />
             </div>
@@ -66,7 +66,7 @@ export const EmployerTopHeader = ({handleFindCandidatePage, handleProfilePage, u
                         {/*<div className="absolute bottom-3 right-3 w-2.5 h-2.5 bg-green-500 rounded-full"></div>*/}
                 </div>
 
-                <button className="text-white text-base font-semibold leading-6 tracking-normal whitespace-nowrap justify-center items-stretch bg-blue-500 px-4 h-fit py-2 rounded-xl">
+                <button onClick={handlePostJobPage} className="text-white text-base font-semibold leading-6 tracking-normal whitespace-nowrap justify-center items-stretch bg-blue-500 px-4 h-fit py-2 rounded-xl">
                     Post New Job
                 </button>
             </div>

@@ -1,4 +1,4 @@
-export const JobPostCard = ({companyName, jobTitle, logo, priceRange, jobDescription, jobType, state, handleFindJobsOneCompany, customStyle}) => {
+export const JobPostCard = ({companyName, jobTitle, logo, priceRange, jobDescription, jobType, state, handleFindJobsOneCompany, country, customStyle}) => {
     const jobTypeBackgroundColor = jobType === "REMOTE" ? "bg-[#56CCF2]" : jobType === "HYBRID" ? "bg-[#D1FADF]" : jobType === "ON_SITE" ? "bg-[#FEF0C7]" : "";
     const jobTypeColor = jobType === "REMOTE" ? "text-[#2F80ED]" : jobType === "HYBRID" ? "text-[#32D583]" : jobType === "ON_SITE" ? "text-[#FEC84B]" : "";
 
@@ -30,7 +30,7 @@ export const JobPostCard = ({companyName, jobTitle, logo, priceRange, jobDescrip
                     {jobType === "ON_SITE" ? "ON SITE" : jobType }
                 </div>
                 <div className="text-black text-base max-w-fit leading-6 tracking-normal self-end grow whitespace-nowrap my-auto">
-                    {state}
+                    {`${state}, ${country}`}
                 </div>
             </div>
         </div>

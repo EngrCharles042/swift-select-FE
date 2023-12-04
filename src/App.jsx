@@ -8,6 +8,7 @@ import {EmployerSignUpForm} from "./Components/Authentication/EmployerSignupForm
 import {LandingPage} from "./Components/Pages/landingPage/LandingPage.jsx";
 import {EmployerPage} from "./Components/Pages/EmployerPage.jsx";
 import {useState} from "react";
+import {CreateJobPostPage} from "./Components/createJobPost/CreateJobPostPage.jsx";
 
 
 function App() {
