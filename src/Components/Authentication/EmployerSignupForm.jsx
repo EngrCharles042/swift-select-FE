@@ -80,11 +80,11 @@ export const EmployerSignUpForm = () => {
             // Make API call to your Java backend to handle user registration
             await axios.post('/auth/employer/register', formData)
                 .then(result => {
+                    setClip(false);
+
                     SweetAlert('success', 'Registration Successful', 'Your Registration is Successful, Please proceed to confirm your Email', 3000);
 
                     setTimeout(() => {
-                        setClip(false);
-
                         setBlur("");
                         navigate("/login")
                     }, 3000)

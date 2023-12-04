@@ -2,9 +2,9 @@ import {useEffect, useState} from "react";
 import axios from "../../api/axios.jsx";
 import {EmployerTopHeader} from "../profile/profileComponents/EmployerTopHeader.jsx";
 import {EmployerProfile} from "../profile/employerProfile/EmployerProfile.jsx";
-import {JobPostsFullPage} from "../findJobPosts/JobPostsFullPage.jsx";
 import {FindCandidatesFullPage} from "../findCandidates/FindCandidatesFullPage.jsx";
 import {ChatPage} from "./ChatPage.jsx";
+import {CreateJobPostPage} from "../createJobPost/CreateJobPostPage.jsx";
 
 export const EmployerPage = () => {
     const [userData, setUserData] = useState()
@@ -51,6 +51,10 @@ export const EmployerPage = () => {
         setPage("find-candidates")
     }
 
+    const handlePostJobPage = () => {
+        setPage("post-job")
+    }
+
     const handleProfilePage = () => {
         setPage("employer-profile")
     }
@@ -63,12 +67,14 @@ export const EmployerPage = () => {
         <div className="mb-15">
             <EmployerTopHeader
                 handleFindCandidatePage={handleFindCandidatePage}
+                handlePostJobPage={handlePostJobPage}
                 handleProfilePage={handleProfilePage}
                 userData={userData}
                 handleChat={handleChatPage}
             />
 
             { page === "find-candidates" && <FindCandidatesFullPage /> }
+            { page === "post-job" && <CreateJobPostPage handleFindCandidatesPage={handleFindCandidatePage} /> }
             { page === "employer-profile" && <EmployerProfile setDep={() => {setDep(!dep)}} userData={userData} /> }
             { page === "chat" && <ChatPage/>}
         </div>

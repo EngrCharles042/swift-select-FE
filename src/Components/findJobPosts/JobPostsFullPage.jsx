@@ -83,7 +83,6 @@ export const JobPostsFullPage = ({handleFindJobsOneCompany, userData}) => {
                 </div>
             }
 
-
             <div className="bg-white flex flex-col items-stretch mb-15"
                  style={ apply ? {inset: 0, overflow: "hidden", height: "100vh"} : {}}
             >
@@ -127,8 +126,8 @@ export const JobPostsFullPage = ({handleFindJobsOneCompany, userData}) => {
                                                                                 jobPost.payRate === "PER_YEAR" ? "Per Year" : "" } `}
                                                         jobDescription={jobPost.description}
                                                         jobType={jobPost.jobType}
-                                                        state={jobPost.location}
-                                                        country={jobPost.location}
+                                                        state={jobPost.state}
+                                                        country={jobPost.country}
                                                     />
                                                 </div>
                                             )

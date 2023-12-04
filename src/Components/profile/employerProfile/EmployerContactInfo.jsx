@@ -4,7 +4,7 @@ import axios from "../../../api/axios.jsx";
 import {SweetAlert} from "../../utils/SweetAlert.jsx";
 import {ClipLoader} from "react-spinners";
 
-export const EmployerContactInfo = ({userData}) => {
+export const EmployerContactInfo = ({userData, setDep}) => {
     const [isVisible, setIsVisible] = useState(false);
 
     const [contactInfo, setContactInfo] = useState({
@@ -103,7 +103,7 @@ export const EmployerContactInfo = ({userData}) => {
                     className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch px-4 py-2.5 border-solid max-md:max-w-full"
                 />
 
-                <button type={"submit"}
+                <button type="submit"
                         className="text-white text-base font-semibold leading-6 tracking-normal whitespace-nowrap justify-center items-stretch bg-blue-500 w-fit max-w-full mt-8 px-4 py-2 rounded-xl self-end cursor-pointer"
                 >
                     Upload Profile
