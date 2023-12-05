@@ -5,6 +5,8 @@ import {JobPostHalfDisplay} from "./JobPostHalfDisplay.jsx";
 import {JobPostSearch} from "./JobPostSearch.jsx";
 import axios from "../../api/axios.jsx";
 import {ReviewApplication} from "../JobApplication/ReviewApplication.jsx";
+import {ReportDetails} from "../utils/ReportDetails.jsx";
+import * as React from "react";
 
 export const JobPostsFullPage = ({handleFindJobsOneCompany, userData}) => {
     const activeStyle = {
@@ -18,6 +20,7 @@ export const JobPostsFullPage = ({handleFindJobsOneCompany, userData}) => {
 
     const [jobPosts, setJobPosts] = useState([])
 
+    const [blackBackDrop, setBlackBackDrop] = useState(false)
 
     const [initialPost, setInitialPost] = useState(() => {
         const fetchData = async () => {
@@ -69,6 +72,9 @@ export const JobPostsFullPage = ({handleFindJobsOneCompany, userData}) => {
         setSeeMore(!seeMore);
     }
 
+    const handleBlackBackDrop = () => {
+        setBlackBackDrop(!blackBackDrop)
+    }
     return (
         <div>
 
@@ -82,6 +88,11 @@ export const JobPostsFullPage = ({handleFindJobsOneCompany, userData}) => {
                 <div className="bg-black flex justify-center inset-[0] items-center absolute zIndex-[2] opacity-[0.6]">
                 </div>
             }
+
+            {/*{ blackBackDrop &&*/}
+            {/*    <div className={`absolute w-[100vw] h-[100vh] justify-center align-center bg-black opacity-[0.9] z-[2]`} >*/}
+            {/*    </div>*/}
+            {/*}*/}
 
             <div className="bg-white flex flex-col items-stretch mb-15"
                  style={ apply ? {inset: 0, overflow: "hidden", height: "100vh"} : {}}
@@ -146,6 +157,7 @@ export const JobPostsFullPage = ({handleFindJobsOneCompany, userData}) => {
                                             handleSeeMore={handleSeeMore}
                                             seeMore={seeMore}
                                             apply={handleApplyCard}
+                                            handleBackDrop={handleBlackBackDrop}
                                         />
                                     </div>
                                 }
