@@ -122,7 +122,7 @@ export const CreateJobPostPage = ({handleFindCandidatesPage}) => {
                 response => {
                     setIsVisible(false);
 
-                    SweetAlert('success', 'Update Successful', 'Profile Picture uploaded successfully');
+                    SweetAlert('success', 'Job Creation Successful',  'Job Post has been created successfully');
                     console.log(response.data.data)
 
                     handleFindCandidatesPage();

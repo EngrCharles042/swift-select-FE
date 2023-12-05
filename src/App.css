@@ -122,3 +122,7 @@ input[type=submit]:hover{
   border-bottom: solid 2px rgb(59, 130, 246);
   color: rgb(59, 130, 246);
 }
+
+ul li {
+  list-style-type: disc;
+}

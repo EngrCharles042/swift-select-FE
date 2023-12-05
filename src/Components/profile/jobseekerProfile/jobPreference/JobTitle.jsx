@@ -33,14 +33,29 @@ export const JobTitle = () => {
                         <div className="relative top-2 text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap flex justify-start items-stretch bg-white self-start w-fit px-1 mx-4">
                             Desired job title?
                         </div>
-                        <input
-                            type="text"
-                            name="jobTitle"
-                            placeholder="Job Title"
-                            value={jobTitle}
-                            onChange={handleInputChange}
-                            className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch px-4 py-2.5 border-solid max-md:max-w-full"
-                        />
+
+                        <div className=" px-4 pb-4 rounded border border-[color:var(--Blue-1,#2F80ED)]">
+                            <input
+                                type="text"
+                                name="qualifications"
+                                // value={qualifications}
+                                // onChange={handleQualificationChange}
+                                className="mt-4 text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-center w-[465px] max-w-full px-4 py-2.5 border-solid"
+                                placeholder="Qualification"
+                            />
+
+                            {/*{ formData.qualifications.map(*/}
+                            {/*    qualification => (*/}
+                                    <div className="mt-4 text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-center w-[465px] max-w-full px-4 py-2.5 border-solid">
+                                        {/*{qualification}*/}
+                                    </div>
+                                {/*)*/}
+                            {/*) }*/}
+
+                        </div>
+
+
+
 
                         <input
                             type="submit"

@@ -29,7 +29,6 @@ export const JobPostsForOneCompany = ({companyName}) => {
                     />
                     <div className="text-gray-900 text-base font-medium leading-6 tracking-normal self-stretch whitespace-nowrap -mr-5">
                         {companyName}
-                        Price Waterhouse Coopers
                     </div>
                 </div>
                 <div className="justify-center items-center self-center flex basis-[0%] flex-col my-auto">
