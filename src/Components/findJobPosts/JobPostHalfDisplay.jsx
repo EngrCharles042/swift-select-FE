@@ -1,16 +1,19 @@
 import {useEffect, useState} from "react";
 import {Report} from "../utils/Report.jsx";
 import axios from "../../api/axios.jsx";
+import * as React from "react";
+import {ReportDetails} from "../utils/ReportDetails.jsx";
 
-export const JobPostHalfDisplay = ({handleSeeMore, handleFindJobsOneCompany, seeMore, selectedJobPost, apply}) => {
+export const JobPostHalfDisplay = ({handleSeeMore, handleFindJobsOneCompany, seeMore, selectedJobPost, apply, handleBackDrop}) => {
     const [report, setReport] = useState(false)
+    const [reportDetails, setReportDetails] = useState(false)
 
     const onDotClick = () => {
         setReport(!report);
     }
 
-    const handleReport = async () => {
-        await axios.post("/job-post/{{jobId}}/report")
+    const handleReportDetails = () => {
+        setReportDetails(!reportDetails)
     }
 
     return(
@@ -30,7 +33,20 @@ export const JobPostHalfDisplay = ({handleSeeMore, handleFindJobsOneCompany, see
                             className="cursor-pointer aspect-square object-contain object-center w-6 overflow-hidden self-center shrink-0 max-w-full my-auto"
                         />
 
-                        { report && <Report/> }
+                        { report && <Report
+                            handleReportDetails={handleReportDetails}
+                            handleBackDrop={handleBackDrop}
+                        /> }
+
+                        { reportDetails &&
+                            <div style={{zIndex: 10}}>
+                                <ReportDetails
+                                    bgColor={"bg-black"}
+                                    handleReportDetails={handleReportDetails}
+                                    selectedJobPost={selectedJobPost}
+                                />
+                            </div>
+                        }
 
                     </div>
                 </div>
@@ -55,7 +71,7 @@ export const JobPostHalfDisplay = ({handleSeeMore, handleFindJobsOneCompany, see
                 </button>
 
             </div>
-            <div className="mt-4 text-black text-lg font-medium leading-6 tracking-normal uppercase whitespace-nowrap mt-2.5 max-md:max-w-full">
+            <div className="mt-4 text-black text-lg font-medium leading-6 tracking-normal uppercase whitespace-nowrap max-md:max-w-full">
                 <b>Job Description{" "}</b>
             </div>
             <div className="text-black text-base font-medium leading-6 tracking-normal mt-3.5 max-md:max-w-full">
@@ -102,6 +118,7 @@ export const JobPostHalfDisplay = ({handleSeeMore, handleFindJobsOneCompany, see
                     </div>
                 </>
             }
+
             <div onClick={handleSeeMore} className="cursor-pointer text-blue-500 text-base font-medium leading-6 tracking-normal whitespace-nowrap mt-2 mb-10 self-end">
                 {" "}
 
