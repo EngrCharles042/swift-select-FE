@@ -11,6 +11,8 @@ export const JobSeekerPage = () => {
 
     const [dep, setDep] = useState(false)
 
+    const [jobPosts, setJobPosts] = useState([])
+
     useEffect(() => {
         const fetchData = async () => {
             await axios.get("/job-seeker", {
