@@ -107,16 +107,18 @@ export const PostNewJobRequirements = ({isVisible, handleChange, formData, respo
                         ) }
                     </div>
 
-                    <button type="submit"
-                            className="text-white cursor-pointer text-center text-base font-semibold leading-6 tracking-normal whitespace-nowrap justify-center items-stretch bg-blue-500 w-fit max-w-full mt-10 px-4 py-2 rounded-xl self-end"
-                    >
-                        Create Post
+                    <div className="flex gap-2">
+                        <button type="submit"
+                                className="text-white cursor-pointer text-center text-base font-semibold leading-6 tracking-normal whitespace-nowrap justify-center items-stretch bg-blue-500 w-fit max-w-full mt-10 px-4 py-2 rounded-xl self-end"
+                        >
+                            Create Post
 
-                        { isVisible &&
-                            <ClipLoader color="#36D7B7" loading={true} size={20}/>
-                        }
+                            { isVisible &&
+                                <ClipLoader color="#36D7B7" loading={true} size={20}/>
+                            }
 
-                    </button>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

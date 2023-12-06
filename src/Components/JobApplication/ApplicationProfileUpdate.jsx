@@ -1,6 +1,7 @@
 import * as React from "react";
 
-export const ApplicationProfileUpdate = (props) => {
+export const ApplicationProfileUpdate = ({handleShowInfo, userData}) => {
+
     return (
         <form className="items-end flex flex-col max-w-[500px]">
             <div className="text-zinc-500 text-base font-semibold leading-6 tracking-normal self-stretch w-full max-md:max-w-full">
@@ -13,6 +14,7 @@ export const ApplicationProfileUpdate = (props) => {
             <input
                 type="text"
                 name="firstName"
+                value={userData.firstName}
                 className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch w-full px-4 py-2.5 border-solid max-md:max-w-full"
                 placeholder="First Name"
             />
@@ -23,6 +25,7 @@ export const ApplicationProfileUpdate = (props) => {
             <input
                 type="text"
                 name="lastName"
+                value={userData.lastName}
                 className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch w-full px-4 py-2.5 border-solid max-md:max-w-full"
                 placeholder="Last Name"
             />
@@ -32,7 +35,8 @@ export const ApplicationProfileUpdate = (props) => {
             </div>
             <input
                 type="tel"
-                name="firstName"
+                name="phoneNumer"
+                value={userData.phoneNumber}
                 className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch w-full px-4 py-2.5 border-solid max-md:max-w-full"
                 placeholder="Phone number"
             />
@@ -46,7 +50,8 @@ export const ApplicationProfileUpdate = (props) => {
             </div>
             <input
                 type="text"
-                name="City"
+                name="city"
+                value={userData.city}
                 className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch w-full px-4 py-2.5 border-solid max-md:max-w-full"
                 placeholder="city"
             />
@@ -55,7 +60,8 @@ export const ApplicationProfileUpdate = (props) => {
             </div>
             <input
                 type="text"
-                name="State"
+                name="state"
+                value={userData.state}
                 className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch w-full px-4 py-2.5 border-solid max-md:max-w-full"
                 placeholder="state"
             />
@@ -65,11 +71,12 @@ export const ApplicationProfileUpdate = (props) => {
             </div>
             <input
                 type="text"
-                name="Postal code"
+                name="postalCode"
+                value={userData.postalCode}
                 className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch w-full px-4 py-2.5 border-solid max-md:max-w-full"
                 placeholder="postal code"
             />
-            <div onClick={props.handleShowInfo} className="text-white text-base font-semibold leading-6 tracking-normal whitespace-nowrap justify-center items-stretch bg-blue-500 w-[145px] max-w-full mt-6 px-4 py-2 rounded-xl self-end cursor-pointer">
+            <div onClick={handleShowInfo} className="text-white text-base font-semibold leading-6 tracking-normal whitespace-nowrap justify-center items-stretch bg-blue-500 w-[145px] max-w-full mt-6 px-4 py-2 rounded-xl self-end cursor-pointer">
                 Save Changes
             </div>
         </form>

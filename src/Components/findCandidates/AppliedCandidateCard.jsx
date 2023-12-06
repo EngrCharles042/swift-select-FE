@@ -1,12 +1,13 @@
-export const AppliedCandidateCard = ({applicantName, applicantTitle, handlePage}) => {
+export const AppliedCandidateCard = ({handlePage, application}) => {
     return (
-        <div onClick={handlePage} className="flex flex-col items-stretch w-6/12 max-md:w-full max-md:ml-0">
+        <div onClick={handlePage} className=" cursor-pointer flex flex-col items-stretch w-[16rem] max-md:w-full max-md:ml-0">
             <div className="items-stretch shadow-lg bg-white flex w-full grow flex-col mx-auto px-6 py-4 rounded-xl max-md:mt-4 max-md:px-5">
                 <div className="justify-between items-stretch flex gap-5">
                     <img
                         loading="lazy"
-                        src="src/assets/images/sundaysvg.svg"
+                        src={`${application.jobSeekerInfo.profilePicture}`}
                         className="aspect-[0.98] object-contain object-center w-[50px] overflow-hidden shrink-0 max-w-full"
+                        style={{borderRadius: "50%"}}
                         alt=""/>
                     <img
                         loading="lazy"
@@ -15,10 +16,11 @@ export const AppliedCandidateCard = ({applicantName, applicantTitle, handlePage}
                         alt=""/>
                 </div>
                 <div className="text-black text-base font-medium leading-6 tracking-normal whitespace-nowrap mt-3">
-                    {applicantName}
+                    {`${application.jobSeekerInfo.firstName} ${application.jobSeekerInfo.lastName}`}
                 </div>
-                <div className="text-black text-sm font-light leading-5 tracking-normal whitespace-nowrap">
-                    {applicantTitle}
+                <div className="text-gray-500 text-sm font-light leading-5 tracking-normal whitespace-nowrap flex justify-between">
+                    <div><b>{application.jobSeekerInfo.gender}</b></div>
+                    <div><b>{application.jobSeekerInfo.country}</b></div>
                 </div>
                 <div className="justify-between items-stretch flex w-full gap-5 mt-4">
                     <div className="items-stretch flex justify-between gap-1">
@@ -28,7 +30,7 @@ export const AppliedCandidateCard = ({applicantName, applicantTitle, handlePage}
                             className="aspect-square object-contain object-center w-4 overflow-hidden shrink-0 max-w-full"
                             alt=""/>
                         <div className="text-blue-500 text-xs leading-4 tracking-normal grow whitespace-nowrap">
-                            Resume-ayomi.pdf
+                            {`Resume - ${application.jobSeekerInfo.firstName}.pdf`}
                         </div>
                     </div>
                     <div className="items-stretch flex gap-1 max-md:justify-center">
@@ -49,27 +51,27 @@ export const AppliedCandidateCard = ({applicantName, applicantTitle, handlePage}
                             alt=""/>
                     </div>
                 </div>
-                <div className="justify-between items-stretch flex gap-3.5 mt-6">
-                    <div className="justify-between items-stretch rounded bg-blue-100 flex gap-2 px-2.5 py-2">
+                <div className="justify-center items-stretch flex gap-3.5 mt-6 w-full">
+                    <div className="justify-center mx-auto rounded bg-blue-100 flex gap-2 px-2.5 py-2 w-full">
                         <img
                             loading="lazy"
                             src="https://cdn.builder.io/api/v1/image/assets/TEMP/aae9011c-8995-4ff0-b8bd-76050cf48fb8?"
                             className="aspect-square object-contain object-center w-4 overflow-hidden shrink-0 max-w-full"
                             alt=""/>
-                        <div className="text-blue-500 text-xs leading-4 tracking-normal grow whitespace-nowrap">
+                        <div className="text-blue-500 text-xs leading-4 tracking-normal whitespace-nowrap">
                             Send Email
                         </div>
                     </div>
-                    <div className="justify-between items-stretch rounded bg-emerald-100 flex gap-2 px-2.5 py-2">
-                        <img
-                            loading="lazy"
-                            src="https://cdn.builder.io/api/v1/image/assets/TEMP/e100267d-758c-4068-baa7-a1afd13518ee?"
-                            className="aspect-square object-contain object-center w-4 overflow-hidden shrink-0 max-w-full"
-                            alt=""/>
-                        <div className="text-green-500 text-xs leading-4 tracking-normal grow whitespace-nowrap">
-                            Message
-                        </div>
-                    </div>
+                    {/*<div className="justify-between items-stretch rounded bg-emerald-100 flex gap-2 px-2.5 py-2">*/}
+                    {/*    <img*/}
+                    {/*        loading="lazy"*/}
+                    {/*        src="https://cdn.builder.io/api/v1/image/assets/TEMP/e100267d-758c-4068-baa7-a1afd13518ee?"*/}
+                    {/*        className="aspect-square object-contain object-center w-4 overflow-hidden shrink-0 max-w-full"*/}
+                    {/*        alt=""/>*/}
+                    {/*    <div className="text-green-500 text-xs leading-4 tracking-normal grow whitespace-nowrap">*/}
+                    {/*        Message*/}
+                    {/*    </div>*/}
+                    {/*</div>*/}
                 </div>
             </div>
         </div>

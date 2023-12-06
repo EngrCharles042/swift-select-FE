@@ -1,6 +1,5 @@
 import {useEffect, useState} from "react";
 import {Report} from "../utils/Report.jsx";
-import axios from "../../api/axios.jsx";
 import * as React from "react";
 import {ReportDetails} from "../utils/ReportDetails.jsx";
 
