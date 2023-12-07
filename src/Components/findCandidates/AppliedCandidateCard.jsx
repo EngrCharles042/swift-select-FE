@@ -62,16 +62,6 @@ export const AppliedCandidateCard = ({handlePage, application}) => {
                             Send Email
                         </div>
                     </div>
-                    {/*<div className="justify-between items-stretch rounded bg-emerald-100 flex gap-2 px-2.5 py-2">*/}
-                    {/*    <img*/}
-                    {/*        loading="lazy"*/}
-                    {/*        src="https://cdn.builder.io/api/v1/image/assets/TEMP/e100267d-758c-4068-baa7-a1afd13518ee?"*/}
-                    {/*        className="aspect-square object-contain object-center w-4 overflow-hidden shrink-0 max-w-full"*/}
-                    {/*        alt=""/>*/}
-                    {/*    <div className="text-green-500 text-xs leading-4 tracking-normal grow whitespace-nowrap">*/}
-                    {/*        Message*/}
-                    {/*    </div>*/}
-                    {/*</div>*/}
                 </div>
             </div>
         </div>

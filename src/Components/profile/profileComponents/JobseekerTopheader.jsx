@@ -2,11 +2,14 @@ import * as React from "react";
 import {useState} from "react";
 import {Link} from "react-router-dom";
 import {ProfilePopUp} from "../../utils/ProfilePopUp.jsx";
+import {NotificationCard} from "../../utils/NotificationCard.jsx";
 
 export const JobSeekerTopHeader = ({handleFindJobPage, handleProfilePage, handleChat}) => {
     const [active, setActive] = useState("findJobs");
 
     const [profileClick, setProfileCLick] = useState(false);
+
+    const [notificationClick, setNotificationClick] = useState(false);
 
     const activePageToFindJobs = () => {
         setActive("findJobs");
@@ -19,6 +22,10 @@ export const JobSeekerTopHeader = ({handleFindJobPage, handleProfilePage, handle
 
     const activePageToChat = () => {
         setActive("chat");
+    }
+
+    const handleNotificationClick = () => {
+        setNotificationClick(!notificationClick)
     }
 
     const swiftLogo = "src/assets/images/swift_logo.svg";
@@ -58,6 +65,7 @@ export const JobSeekerTopHeader = ({handleFindJobPage, handleProfilePage, handle
                 </div>
 
                 <img
+                    onClick={handleNotificationClick}
                     loading="lazy"
                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/73249c3c-c15c-417f-834f-3787ae54f692?apiKey=2a664b353843410292501e6f128833a4&"
                     className="aspect-square object-contain object-center w-8 overflow-hidden self-center shrink-0 max-w-full my-auto cursor-pointer"
@@ -75,8 +83,15 @@ export const JobSeekerTopHeader = ({handleFindJobPage, handleProfilePage, handle
                 </div>
             </div>
 
+            { notificationClick &&
+                <div className="absolute right-[2rem] top-[5.8rem] rounded-2xl shadow-2xl">
+                    <NotificationCard
+                    />
+                </div>
+            }
+
             { profileClick &&
-                <div className="absolute right-[2rem] top-[5.4rem] shadow-2xl">
+                <div className="absolute right-[2rem] top-[5.8rem] shadow-2xl">
                     <ProfilePopUp handleProfilePop={() => (setProfileCLick(!profileClick))} handleProfile={activePageToProfile} />
                 </div>
             }

@@ -124,6 +124,7 @@ export const JobPostsFullPage = ({handleFindJobsOneCompany, userData}) => {
                                             jobPost => (
                                                 <div key={jobPost.id} id={jobPost.id} onClick={() => (setInitialPost(jobPost)) }>
                                                     <JobPostCard
+                                                        companyId={jobPost.companyId}
                                                         customStyle={initialPost.id === jobPost.id ? activeStyle : {}}
                                                         handleFindJobsOneCompany={handleFindJobsOneCompany}
                                                         companyName={jobPost.companyName}

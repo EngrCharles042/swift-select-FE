@@ -32,10 +32,12 @@ export const JobPostHalfDisplay = ({handleSeeMore, handleFindJobsOneCompany, see
                             className="cursor-pointer aspect-square object-contain object-center w-6 overflow-hidden self-center shrink-0 max-w-full my-auto"
                         />
 
-                        { report && <Report
+                        { report &&
+                            <Report
                             handleReportDetails={handleReportDetails}
                             handleBackDrop={handleBackDrop}
-                        /> }
+                            />
+                        }
 
                         { reportDetails &&
                             <div style={{zIndex: 10}}>
