@@ -6,12 +6,18 @@ import {useEffect, useState} from "react";
 import {JobSeekerTopHeader} from "../profile/profileComponents/JobSeekerTopHeader.jsx";
 import axios from "../../api/axios.jsx";
 import {ChatPage} from "./ChatPage.jsx";
+import {Route, Routes} from "react-router-dom";
+import {LandingPage} from "./landingPage/LandingPage.jsx";
+import {LoginForm} from "../Authentication/LoginForm.jsx";
+import {JobSeekerSignUpForm} from "../Authentication/JobSeekerSignUpForm.jsx";
+import {EmployerSignUpForm} from "../Authentication/EmployerSignupForm.jsx";
+import {ResetPasswordEmail} from "../Authentication/ResetPasswordEmail.jsx";
+import {ResetPassword} from "../Authentication/ResetPassword.jsx";
+import {EmployerPage} from "./EmployerPage.jsx";
 
 export const JobSeekerPage = () => {
 
     const [dep, setDep] = useState(false)
-
-    const [jobPosts, setJobPosts] = useState([])
 
     useEffect(() => {
         const fetchData = async () => {

@@ -9,6 +9,8 @@ import {LandingPage} from "./Components/Pages/landingPage/LandingPage.jsx";
 import {EmployerPage} from "./Components/Pages/EmployerPage.jsx";
 import {useState} from "react";
 import {CreateJobPostPage} from "./Components/createJobPost/CreateJobPostPage.jsx";
+import {NotificationCard} from "./Components/utils/NotificationCard.jsx";
+import {JobPostsForOneCompany} from "./Components/findJobPosts/JobPostsForOneCompany.jsx";
 
 
 function App() {
@@ -25,6 +27,7 @@ function App() {
             <Route path="/reset-forgot-password" element={<ResetPassword/>}/>
             <Route path="/employer-page" element={<EmployerPage/>}/>
             <Route path="/jobseeker-page" element={<JobSeekerPage/>}/>
+            <Route path="/jobs-one-company/:id" element={<JobPostsForOneCompany/>}/>
         </Routes>
     </>
 

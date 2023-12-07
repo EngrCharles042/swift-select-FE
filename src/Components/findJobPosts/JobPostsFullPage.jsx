@@ -79,20 +79,19 @@ export const JobPostsFullPage = ({handleFindJobsOneCompany, userData}) => {
         <div>
 
             { apply &&
-                <div className="w-[100vw] h-[100vh] flex justify-center items-center absolute z-[5]">
-                    <ReviewApplication apply={handleApplyCard} />
+                <div className="w-[100vw] h-[100vh] flex justify-center items-center absolute z-[3]">
+                    <ReviewApplication
+                        userData={userData}
+                        selectedJobPost={initialPost}
+                        apply={handleApplyCard}
+                    />
                 </div>
             }
 
             { apply &&
-                <div className="bg-black flex justify-center inset-[0] items-center absolute zIndex-[2] opacity-[0.6]">
+                <div className="bg-black flex justify-center w-[100vw] h-[100%] items-center absolute z-[2] opacity-[0.8]">
                 </div>
             }
-
-            {/*{ blackBackDrop &&*/}
-            {/*    <div className={`absolute w-[100vw] h-[100vh] justify-center align-center bg-black opacity-[0.9] z-[2]`} >*/}
-            {/*    </div>*/}
-            {/*}*/}
 
             <div className="bg-white flex flex-col items-stretch mb-15"
                  style={ apply ? {inset: 0, overflow: "hidden", height: "100vh"} : {}}
@@ -125,6 +124,7 @@ export const JobPostsFullPage = ({handleFindJobsOneCompany, userData}) => {
                                             jobPost => (
                                                 <div key={jobPost.id} id={jobPost.id} onClick={() => (setInitialPost(jobPost)) }>
                                                     <JobPostCard
+                                                        companyId={jobPost.companyId}
                                                         customStyle={initialPost.id === jobPost.id ? activeStyle : {}}
                                                         handleFindJobsOneCompany={handleFindJobsOneCompany}
                                                         companyName={jobPost.companyName}

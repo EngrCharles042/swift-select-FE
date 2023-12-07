@@ -5,7 +5,7 @@ import {SweetAlert} from "../../../utils/SweetAlert.jsx";
 
 export const Education = () => {
     const [formData, setFormData] = useState({
-        levelOfEducation: '',
+        educationLevel: '',
         fieldOfStudy: '',
         yearOfGraduation: ''
     })
@@ -41,12 +41,13 @@ export const Education = () => {
                     Level of education
                 </div>
                 <select
-                    name="levelOfEducation"
-                    value={formData.levelOfEducation}
+                    name="educationLevel"
+                    value={formData.educationLevel}
                     onChange={handleChange}
                     placeholder="Level of Education"
                     className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch px-4 py-2.5 border-solid max-md:max-w-full"
                 >
+                    <option value="" selected disabled></option>
                     <option value="HIGH_SCHOOL">High School</option>
                     <option value="DEGREE">Degree</option>
                     <option value="DIPLOMA">Diploma</option>

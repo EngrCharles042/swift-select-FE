@@ -1,12 +1,18 @@
-export const AppliedCandidateCredentials = ({applicantName, applicantTitle}) => {
+export const AppliedCandidateCredentials = ({selectedCandidate, setPage}) => {
     return (
-        <div className="bg-white flex flex-col pb-12">
-            <div className="items-stretch shadow-lg bg-white self-center flex w-full max-w-[1000px] flex-col mt-14 px-6 py-4 rounded-xl max-md:max-w-full max-md:mt-10 max-md:px-5">
+        <div className="bg-white flex flex-col pb-12 w-[80vw]">
+            <div onClick={setPage} className="sticky top-[7.5rem] cursor-pointer justify-between rounded bg-emerald-100 flex gap-2 px-2.5 py-4 items-start">
+                <div className="text-green-500 text-xs leading-4 tracking-normal self-stretch grow whitespace-nowrap">
+                    Go Back to Main Page
+                </div>
+            </div>
+            <div className="items-stretch shadow-lg bg-white self-center flex w-full w-[80vw] flex-col mt-14 px-6 py-4 rounded-xl max-md:max-w-full max-md:mt-10 max-md:px-5">
                 <div className="justify-between items-stretch flex gap-5 max-md:max-w-full max-md:flex-wrap">
                     <img
                         loading="lazy"
-                        src="src/assets/images/sundaysvg.svg"
+                        src={`${selectedCandidate.profilePicture}`}
                         className="aspect-square object-contain object-center w-[100px] overflow-hidden shrink-0 max-w-full"
+                        style={{borderRadius: "50%"}}
                     />
                     <img
                         loading="lazy"
@@ -15,23 +21,19 @@ export const AppliedCandidateCredentials = ({applicantName, applicantTitle}) => 
                     />
                 </div>
                 <div className="text-black text-2xl font-medium leading-9 tracking-normal whitespace-nowrap mt-3 self-start">
-                    {applicantName}
-                    Charles Obi
+                    {`${selectedCandidate.firstName} ${selectedCandidate.lastName}`}
                 </div>
-                <div className="items-center flex w-[248px] max-w-full gap-1 self-start">
+                <div className="items-center flex w-[248px] max-w-full gap-1 mt-2 self-start">
                     <div className="text-black text-lg font-light leading-6 tracking-normal grow whitespace-nowrap my-auto">
-                        {applicantTitle}
-                        Java Developer at{" "}
+                        <span className="text-gray-500"><b>{selectedCandidate.gender}</b></span>
                     </div>
-                    <img
-                        loading="lazy"
-                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/8f0eefb8-7689-4a2a-bb13-6139b7edc6d2?"
-                        className="aspect-square object-contain object-center w-8 fill-[url(<path-to-image>),lightgray_50%_/_contain_no-repeat] overflow-hidden self-stretch shrink-0 max-w-full"
-                    />
+                    <div className="ml-[9rem] text-black text-lg font-light leading-6 tracking-normal grow whitespace-nowrap my-auto">
+                        <span className="text-gray-500"><b>{selectedCandidate.country}</b></span>
+                    </div>
                 </div>
                 <div className="justify-between items-stretch flex w-full gap-5 mt-4 max-md:max-w-full max-md:flex-wrap">
-                    <div className="items-stretch flex justify-between gap-5 max-md:max-w-full max-md:flex-wrap">
-                        <div className="items-stretch rounded bg-gray-100 flex grow basis-[0%] flex-col justify-center px-2 py-1">
+                    <div className="items-stretch flex justify-between gap-5 w-[50vw] max-md:max-w-full max-md:flex-wrap">
+                        <a href={`${selectedCandidate.resume}`} className="items-stretch rounded bg-gray-100 flex grow basis-[0%] flex-col justify-center px-2 py-2">
                             <div className="flex gap-1 items-start max-md:justify-center">
                                 <img
                                     loading="lazy"
@@ -39,7 +41,7 @@ export const AppliedCandidateCredentials = ({applicantName, applicantTitle}) => 
                                     className="aspect-square object-contain object-center w-6 overflow-hidden self-stretch shrink-0 max-w-full"
                                 />
                                 <div className="text-blue-500 text-base font-medium leading-6 tracking-normal grow shrink basis-auto">
-                                    Resume-charlesobicv.pdf
+                                    {`Resume - ${selectedCandidate.firstName}.pdf`}
                                 </div>
                                 <img
                                     loading="lazy"
@@ -47,8 +49,8 @@ export const AppliedCandidateCredentials = ({applicantName, applicantTitle}) => 
                                     className="aspect-square object-contain object-center w-6 overflow-hidden self-stretch shrink-0 max-w-full"
                                 />
                             </div>
-                        </div>
-                        <div className="items-stretch rounded bg-gray-100 flex grow basis-[0%] flex-col justify-center px-2 py-1">
+                        </a>
+                        <a href={`${selectedCandidate.coverLetter}`} className="items-stretch rounded bg-gray-100 flex grow basis-[0%] flex-col justify-center px-2 py-2">
                             <div className="flex gap-1 items-start max-md:justify-center">
                                 <img
                                     loading="lazy"
@@ -56,7 +58,7 @@ export const AppliedCandidateCredentials = ({applicantName, applicantTitle}) => 
                                     className="aspect-square object-contain object-center w-6 overflow-hidden self-stretch shrink-0 max-w-full"
                                 />
                                 <div className="text-blue-500 text-base font-medium leading-6 tracking-normal grow shrink basis-auto">
-                                    Coverletter-charlesobicl.pdf
+                                    {`Cover Letter - ${selectedCandidate.firstName}.pdf`}
                                 </div>
                                 <img
                                     loading="lazy"
@@ -64,7 +66,7 @@ export const AppliedCandidateCredentials = ({applicantName, applicantTitle}) => 
                                     className="aspect-square object-contain object-center w-6 overflow-hidden self-stretch shrink-0 max-w-full"
                                 />
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <div className="items-stretch self-center flex gap-1.5 my-auto max-md:justify-center">
                         <img
@@ -85,7 +87,7 @@ export const AppliedCandidateCredentials = ({applicantName, applicantTitle}) => 
                     </div>
                 </div>
                 <div className="justify-between items-stretch flex w-[219px] max-w-full gap-3.5 mt-6 px-px self-start">
-                    <div className="justify-between rounded bg-blue-100 flex gap-2 px-2.5 py-2 items-start">
+                    <a href={`mailto:${selectedCandidate.email}`} className="justify-between rounded bg-blue-100 flex gap-2 px-2.5 py-2 items-start">
                         <img
                             loading="lazy"
                             src="https://cdn.builder.io/api/v1/image/assets/TEMP/0915df1d-65aa-4c06-97bd-b9adaec6d2a8?"
@@ -94,65 +96,87 @@ export const AppliedCandidateCredentials = ({applicantName, applicantTitle}) => 
                         <div className="text-blue-500 text-xs leading-4 tracking-normal self-stretch grow whitespace-nowrap">
                             Send Email
                         </div>
-                    </div>
-                    <div className="justify-between rounded bg-emerald-100 flex gap-2 px-2.5 py-2 items-start">
-                        <img
-                            loading="lazy"
-                            src="https://cdn.builder.io/api/v1/image/assets/TEMP/c8264011-9231-4a18-a16a-ff0748a0a37f?"
-                            className="aspect-square object-contain object-center w-4 overflow-hidden shrink-0 max-w-full"
-                        />
-                        <div className="text-green-500 text-xs leading-4 tracking-normal self-stretch grow whitespace-nowrap">
-                            Message
-                        </div>
-                    </div>
+                    </a>
                 </div>
             </div>
-            <div className="text-black text-lg font-medium leading-6 tracking-normal uppercase self-start whitespace-nowrap mt-2.5 max-md:max-w-full">
-                Education
+            <div className="text-blue-500 mt-8 text-black text-lg font-medium leading-6 tracking-normal uppercase self-start whitespace-nowrap mt-2.5 max-md:max-w-full">
+                <b>Education</b>
             </div>
-            <div className="text-black text-base font-medium leading-6 tracking-normal mt-3.5 max-md:max-w-full">
-                Covenant University Ogun, Nigeria
-                <br />
-                B.Sc. in Accounting, Second Class Upper Honors
-                <br />
-                Sept 2017 - Oct 2021
+
+            { selectedCandidate.education.length !== 0 ?
+                selectedCandidate.education.map(
+                    edu => (
+                        <div className="text-black text-base font-medium leading-6 tracking-normal mt-3.5 max-md:max-w-full">
+                            <br />
+                            <span className="text-blue-500"><b>{edu.educationLevel}</b></span> in {edu.fieldOfStudy}
+                            <br />
+                            <span className="text-gray-500">{edu.yearOfGraduation}</span>
+                        </div>
+                    )
+                ) : <div className="text-black text-base font-medium leading-6 tracking-normal max-md:max-w-full">No Education History to display</div>
+            }
+
+            <div className="text-blue-500 text-lg font-medium leading-6 tracking-normal uppercase self-start whitespace-nowrap mt-3.5 max-md:max-w-full">
+                <b>WORK EXPERIENCE</b>
             </div>
-            <div className="text-black text-lg font-medium leading-6 tracking-normal uppercase self-start whitespace-nowrap mt-3.5 max-md:max-w-full">
-                WORK EXPERIENCE
+
+            { selectedCandidate.workExperiences.length !== 0 ?
+                selectedCandidate.workExperiences.map(
+                    workExp => (
+                        <div className="text-black text-base font-medium leading-6 tracking-normal max-md:max-w-full">
+                            <span className="font-semibold">{workExp.companyName}</span>
+                            <span className="font-medium">
+                              {" "}
+                                            <br />
+                                {workExp.jobTitle} <br />
+                                <span className="text-gray-500">{workExp.startDate} - {workExp.stopDate}</span>
+                            </span>
+                        </div>
+                    )
+                ) :
+                <div className="text-black text-base font-medium leading-6 tracking-normal mt-3.5 max-md:max-w-full">No Work Experience History to display</div>
+            }
+
+            <div className="text-blue-500 text-black text-lg font-medium leading-6 tracking-normal uppercase mt-3.5 max-md:max-w-full">
+                <b>SKILLS</b>
             </div>
-            <div className="text-black text-base font-medium leading-6 tracking-normal mt-3.5 max-md:max-w-full">
-                <span className="font-semibold">Decagon, Lagos. </span>
-                <span className="font-medium">
-          {" "}
-                    <br />
-          UI/UX Designer Intern <br />
-          May 2023 - Oct 202
-        </span>
+            <ul className="ml-4">
+                { selectedCandidate.skills.length !== 0 ?
+                    selectedCandidate.skills.map(
+                        skill => (
+                            <li>
+                                {skill.skill} - {
+                                    
+                                    skill.yearsOfExperience === "NO_EXPERIENCE" ? <span className="text-gray-500">No Experience</span> :
+                                        skill.yearsOfExperience === "LESS_THAN_ONE_YEAR" ? <span className="text-gray-500">Less than One year</span> :
+                                            skill.yearsOfExperience === "ONE_TO_THREE_YEARS" ? <span className="text-gray-500">One to Three years</span> :
+                                                skill.yearsOfExperience === "FOUR_TO_SIX_YEARS" ? <span className="text-gray-500">Four to Six Years</span> :
+                                                    skill.yearsOfExperience === "SEVEN_TO_NINE_YEARS" ? <span className="text-gray-500">Seven to Nine years</span> :
+                                                        skill.yearsOfExperience === "MORE_THAN_TEN_YEARS" ? <span className="text-gray-500">More than Ten Years</span> : ""
+
+
+                            }
+                            </li>
+                        )
+                    ) :
+                    <div className="text-black text-base font-medium leading-6 tracking-normal mt-3.5 max-md:max-w-full">No Skills to display</div>
+                }
+            </ul>
+            <div className="text-blue-500 text-black text-lg font-medium leading-6 tracking-normal uppercase self-start whitespace-nowrap mt-3.5 max-md:max-w-full">
+                <b>CERTIFICATIONS</b>
             </div>
-            <div className="text-black text-lg font-medium leading-6 tracking-normal uppercase mt-3.5 max-md:max-w-full">
-                SKILLS
-            </div>
-            <div className="text-black text-lg font-medium leading-6 tracking-normal mt-3.5 max-md:max-w-full">
-                <ul>
-                    <li>
-                        Microsoft Office (Word, Excel, Powerpoint), Communication skills,
-                        Graphic design, User interface (UI) design, Wireframing,
-                        Prototyping, Front-end development (in-view), Teamwork,
-                        Organizational skills, Research and Analysis, Creativity,
-                        Leadership.
-                    </li>
-                </ul>
-            </div>
-            <div className="text-black text-lg font-medium leading-6 tracking-normal uppercase self-start whitespace-nowrap mt-3.5 max-md:max-w-full">
-                CERTIFICATIONS
-            </div>
-            <div className="text-black text-lg font-medium leading-6 tracking-normal mt-3.5 mb-16 max-md:max-w-full max-md:mb-10">
-                <ul>
-                    <li>Foundations of User Experience (UX) Design.</li>
-                    <li>Start the UX Design Process: Empathize, Define and Ideate.</li>
-                    <li>Build Wireframes and Low-Fidelity Prototypes.</li>
-                </ul>
-            </div>
+            <ul className="ml-4">
+                { selectedCandidate.certifications.length !== 0 ?
+                    selectedCandidate.certifications.map(
+                        certification => (
+                            <li>
+                                {certification.name} - <span className="text-gray-500">{certification.expiration}</span>
+                            </li>
+                        )
+                    ) :
+                    <div className="text-black text-base font-medium leading-6 tracking-normal mt-3.5 max-md:max-w-full">No Certification to display</div>
+                }
+            </ul>
         </div>
     );
 }

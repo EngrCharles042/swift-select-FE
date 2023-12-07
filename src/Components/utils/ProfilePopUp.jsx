@@ -9,7 +9,7 @@ export const ProfilePopUp = ({handleProfile, handleProfilePop}) => {
     }
 
   return (
-    <div className="items-stretch bg-white flex flex-col py-4 w-fit px-6">
+    <div className="items-stretch bg-white flex flex-col py-4 w-fit px-6 rounded-xl">
       <header className="text-sky-500 text-xl leading-7 tracking-normal justify-center items-stretch bg-white w-full py-2 max-md:px-1">
           {localStorage.getItem("email")}
       </header>
