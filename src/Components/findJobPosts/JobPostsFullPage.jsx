@@ -9,6 +9,7 @@ import {ReportDetails} from "../utils/ReportDetails.jsx";
 import * as React from "react";
 
 export const JobPostsFullPage = ({handleFindJobsOneCompany, userData}) => {
+
     const activeStyle = {
         border: "1px solid var(--Blue-1, #2F80ED)",
         boxShadow: "0px 6px 16px 0px rgba(0, 0, 0, 0.16)"
@@ -42,16 +43,23 @@ export const JobPostsFullPage = ({handleFindJobsOneCompany, userData}) => {
         return fetchData();
     });
 
+    const [filterData, setFilterData] = useState();
+
+    const getFilterData = (data) => {
+        setFilterData(data)
+    }
 
     useEffect(() => {
+
+
         const fetchJobPosts = async () => {
-            await axios.get("/job-post", {
+            await axios.post("job-seeker/filter", filterData, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem("token")}`
                 }
             }).then(
                 response => {
-                    const fetchedData = response.data.data.content;
+                    const fetchedData = response.data.data;
 
                     setJobPosts(fetchedData);
                     setInitialPost(fetchedData[0])
@@ -62,7 +70,7 @@ export const JobPostsFullPage = ({handleFindJobsOneCompany, userData}) => {
 
         fetchJobPosts();
 
-    }, []);
+    }, [filterData]);
 
     const handleApplyCard = () => {
         setApply(!apply)
@@ -99,7 +107,7 @@ export const JobPostsFullPage = ({handleFindJobsOneCompany, userData}) => {
 
                 <div className="self-center flex w-[781px] max-w-full flex-col mt-6 px-5">
 
-                    <JobPostSearch />
+                    <JobPostSearch/>
 
                     {!seeMore &&
                         <div className="text-black text-xl font-medium leading-7 tracking-normal self-stretch whitespace-nowrap -mr-5 mt-5 max-md:max-w-full">
@@ -111,7 +119,9 @@ export const JobPostsFullPage = ({handleFindJobsOneCompany, userData}) => {
                 <div className="self-center flex w-full max-w-[1277px] justify-between gap-5 mt-3.5 max-md:max-w-full max-md:flex-wrap">
 
                     {!seeMore &&
-                        <SortJobPosts />
+                        <SortJobPosts
+                            getData={getFilterData}
+                        />
                     }
 
                     <div className="self-stretch max-md:max-w-full mx-auto">

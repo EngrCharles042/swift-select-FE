@@ -70,7 +70,7 @@ export const PostNewJobRequirements = ({isVisible, handleChange, formData, respo
 
                         { formData.responsibilities.map(
                             responsibility => (
-                                <div className="mt-4 text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-center w-[465px] max-w-full px-4 py-2.5 border-solid">
+                                <div className="mt-4 truncate text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-center w-[465px] max-w-full px-4 py-2.5 border-solid">
                                     {responsibility}
                                 </div>
                             )
@@ -100,7 +100,7 @@ export const PostNewJobRequirements = ({isVisible, handleChange, formData, respo
 
                         { formData.niceToHave.map(
                             niceToHave => (
-                                <div className="mt-4 text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-center w-[465px] max-w-full px-4 py-2.5 border-solid">
+                                <div className="mt-4 truncate text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-center w-[465px] max-w-full px-4 py-2.5 border-solid">
                                     {niceToHave}
                                 </div>
                             )
