@@ -25,7 +25,7 @@ export const ChatPage = () => {
     return(
         <div style={{height: "100vh", width: "100vw"}}>
             <PrettyChatWindow
-                projectId="95909330-4295-4156-bd8a-8b70b1e062d7"
+                projectId="c412161a-cac6-4c07-8c07-72e63019ead5"
                 username={formData.email}
                 secret={secret}
                 style={{height: "100%", width: "100vw"}}

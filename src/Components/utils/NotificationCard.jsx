@@ -57,7 +57,7 @@ export const NotificationCard = () => {
                                 onClick={() => {
                                     handleReadNotification(notification.id)
                                 }}
-                                className={`${notification.read ? "" : "bg-green-500"} pr-2 w-fit cursor-pointer flex items-center gap-8 mt-2 max-md:mt-10`}
+                                className={`${notification.read ? "" : "bg-green-500"} pr-2 cursor-pointer grow justify-center flex items-center gap-8 mt-2 max-md:mt-10`}
                                 style={{borderRadius: "5px"}}
                             >
                                 <div className="items-stretch flex justify-between gap-2">
